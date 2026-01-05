@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Instagram, Mail, Phone } from "lucide-react";
-import logoPreto from "@/assets/logo-preto.png";
+import logoBranco from "@/assets/logo-branco.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Logo & Tagline */}
           <div className="md:col-span-1">
-            <img src={logoPreto} alt="Kronica" className="h-6 mb-4 invert" />
+            <img src={logoBranco} alt="Kronica" className="h-6 mb-4" />
             <p className="text-sm text-secondary-foreground/70">
               Branding e design estratégico para marcas com propósito.
             </p>
@@ -83,33 +83,33 @@ const Footer = () => {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:contato@kronica.com.br"
+                  href="mailto:kronicastudio@gmail.com"
                   className="text-sm hover:text-primary-foreground transition-colors flex items-center gap-2"
                 >
                   <Mail size={14} />
-                  contato@kronica.com.br
+                  kronicastudio@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="https://wa.me/5511999999999"
+                  href="https://wa.me/5528999161275"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm hover:text-primary-foreground transition-colors flex items-center gap-2"
                 >
                   <Phone size={14} />
-                  +55 11 99999-9999
+                  +55 (28) 99916-1275
                 </a>
               </li>
               <li>
                 <a
-                  href="https://instagram.com/kronica"
+                  href="https://instagram.com/kronicastudio"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm hover:text-primary-foreground transition-colors flex items-center gap-2"
                 >
                   <Instagram size={14} />
-                  @kronica
+                  @kronicastudio
                 </a>
               </li>
             </ul>
@@ -124,7 +124,7 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-6">
               <a
-                href="https://instagram.com/kronica"
+                href="https://instagram.com/kronicastudio"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-secondary-foreground/50 hover:text-secondary-foreground transition-colors"
@@ -133,14 +133,14 @@ const Footer = () => {
                 <Instagram size={18} />
               </a>
               <a
-                href="mailto:contato@kronica.com.br"
+                href="mailto:kronicastudio@gmail.com"
                 className="text-secondary-foreground/50 hover:text-secondary-foreground transition-colors"
                 aria-label="E-mail"
               >
                 <Mail size={18} />
               </a>
               <a
-                href="https://wa.me/5511999999999"
+                href="https://wa.me/5528999161275"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-secondary-foreground/50 hover:text-secondary-foreground transition-colors"

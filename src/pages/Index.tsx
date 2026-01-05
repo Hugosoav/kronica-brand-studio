@@ -149,11 +149,22 @@ const Index = () => {
       {/* Manifesto */}
       <section className="py-24 bg-secondary text-secondary-foreground">
         <div className="container mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <span className="text-sm uppercase tracking-wider text-secondary-foreground/50 mb-6 block">Manifesto</span>
-            <blockquote className="text-2xl md:text-3xl font-light leading-relaxed">
-              "A Kronica acredita que marca não é só estética — é percepção e consistência. A equipe transforma ideias em sistemas visuais com intenção: simples, bonitos e prontos para o mundo real."
-            </blockquote>
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-center">Marcas que contam histórias</h2>
+            <div className="space-y-6 text-secondary-foreground/80 leading-relaxed">
+              <p>
+                A Kronica é um brand studio independente que acredita no poder das marcas. Elas são narrativas vivas, construídas no tempo, no detalhe e na coerência.
+              </p>
+              <p>
+                Inspirados no conceito de crônica, criamos marcas como quem escreve histórias: com propósito, personalidade e intenção. Nada é genérico e nada é por acaso. Cada projeto é pensado para refletir a essência de quem está por trás da marca e sustentar um posicionamento claro e consistente.
+              </p>
+              <p>
+                Trabalhamos de forma próxima, estratégica e autoral, unindo design e branding para construir marcas que fazem sentido, se diferenciam e permanecem.
+              </p>
+              <p>
+                A Kronica existe para marcas que entendem que branding é construção contínua, que boas histórias não se contam em um único capítulo, mas se sustentam ao longo do tempo.
+              </p>
+            </div>
           </div>
         </div>
       </section>

@@ -61,26 +61,26 @@ const Contato = () => {
     {
       icon: Phone,
       title: "WhatsApp",
-      value: "+55 11 99999-9999",
-      href: "https://wa.me/5511999999999",
+      value: "+55 (28) 99916-1275",
+      href: "https://wa.me/5528999161275",
     },
     {
       icon: Mail,
       title: "E-mail",
-      value: "contato@kronica.com.br",
-      href: "mailto:contato@kronica.com.br",
+      value: "kronicastudio@gmail.com",
+      href: "mailto:kronicastudio@gmail.com",
     },
     {
       icon: Instagram,
       title: "Instagram",
-      value: "@kronica",
-      href: "https://instagram.com/kronica",
+      value: "@kronicastudio",
+      href: "https://instagram.com/kronicastudio",
     },
     {
       icon: Calendar,
       title: "Agendar",
       value: "Marcar conversa",
-      href: "#",
+      href: "https://wa.me/5528999161275",
     },
   ];
 
