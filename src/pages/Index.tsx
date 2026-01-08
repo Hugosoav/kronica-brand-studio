@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
-import { DottedSurface } from "@/components/ui/dotted-surface";
 import FloatingCardGallery from "@/components/ui/floating-card-gallery";
+import InfiniteHero from "@/components/ui/infinite-hero";
 
 const projects = [
   {
@@ -64,31 +64,14 @@ const Index = () => {
       <meta name="description" content="A equipe da Kronica cria identidades e sistemas visuais com clareza, consistência e estética — do posicionamento à aplicação." />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <DottedSurface className="z-0" />
-        
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-semibold leading-tight mb-8 animate-fade-in-up text-primary">
-              Marcas que contam histórias
-            </h1>
-            <p className="text-lg md:text-xl text-primary/80 max-w-2xl mx-auto mb-12 animate-fade-in-up delay-100">
-              Boas histórias não se contam em um único capítulo, mas se sustentam ao longo do tempo.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-200">
-              <Button asChild size="lg">
-                <Link to="/servicos">
-                  Ver serviços
-                  <ArrowRight className="ml-2" size={18} />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                <Link to="/contato">Falar com a equipe</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <InfiniteHero 
+        title="Marcas que contam histórias"
+        subtitle="Boas histórias não se contam em um único capítulo, mas se sustentam ao longo do tempo."
+        primaryButtonText="Conhecer"
+        primaryButtonLink="/sobre"
+        secondaryButtonText="Ver projetos"
+        secondaryButtonLink="/projetos"
+      />
 
       {/* Portfolio Section */}
       <section className="py-24">
