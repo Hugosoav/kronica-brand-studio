@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logoBranco from "@/assets/logo-branco.png";
 
@@ -11,7 +11,7 @@ const Header = () => {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/sobre", label: "Sobre" },
-    { href: "/servicos", label: "Serviços" },
+    { href: "/projetos", label: "Projetos" },
     { href: "/contato", label: "Contato" },
   ];
 
@@ -41,10 +41,12 @@ const Header = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* Search Button */}
           <div className="hidden md:block">
-            <Button asChild size="sm">
-              <Link to="/contato">Agendar conversa</Link>
+            <Button asChild size="sm" variant="ghost">
+              <Link to="/projetos" aria-label="Buscar projetos">
+                <Search size={20} />
+              </Link>
             </Button>
           </div>
 
@@ -74,9 +76,9 @@ const Header = () => {
                   {link.label}
                 </Link>
               ))}
-              <Button asChild size="sm" className="mt-2 w-full">
-                <Link to="/contato" onClick={() => setIsMenuOpen(false)}>
-                  Agendar conversa
+              <Button asChild size="sm" variant="ghost" className="mt-2 w-fit">
+                <Link to="/projetos" onClick={() => setIsMenuOpen(false)} aria-label="Buscar projetos">
+                  <Search size={20} />
                 </Link>
               </Button>
             </div>
