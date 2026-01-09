@@ -225,7 +225,7 @@ interface InfiniteHeroProps {
 
 export default function InfiniteHero({
   title = "Marcas que contam histórias",
-  subtitle = "Boas histórias não se contam em um único capítulo, mas se sustentam ao longo do tempo.",
+  subtitle = "— Kronica Studio",
   primaryButtonText = "Conhecer",
   primaryButtonLink = "/sobre",
   secondaryButtonText = "Ver projetos",
@@ -280,6 +280,15 @@ export default function InfiniteHero({
           "-=0.5",
         )
         .to(ctas, { opacity: 1, y: 0, duration: 0.6, stagger: 0.08 }, "-=0.2");
+
+      // Continuous floating animation on title
+      gsap.to(h1Ref.current, {
+        y: -8,
+        duration: 2.5,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+      });
     },
     { scope: rootRef },
   );
@@ -304,7 +313,7 @@ export default function InfiniteHero({
             ref={h1Ref}
             className="text-4xl font-light tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            {title}
+            "{title}"
           </h1>
 
           <p
