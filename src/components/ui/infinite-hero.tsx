@@ -7,7 +7,6 @@ import { useMemo, useRef } from "react";
 import * as THREE from "three";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ParticleTextEffect } from "@/components/ui/interactive-text-particle";
 
 interface ShaderPlaneProps {
   vertexShader: string;
@@ -234,12 +233,18 @@ export default function InfiniteHero({
 }: InfiniteHeroProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
+  const h1Ref = useRef<HTMLHeadingElement>(null);
   const pRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
       gsap.set(bgRef.current, { filter: "blur(28px)" });
+      gsap.set(h1Ref.current, {
+        opacity: 0,
+        y: 24,
+        filter: "blur(8px)",
+      });
       gsap.set(pRef.current, {
         opacity: 0,
         y: 16,
@@ -252,6 +257,16 @@ export default function InfiniteHero({
       const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
       tl.to(bgRef.current, { filter: "blur(0px)", duration: 1.2 }, 0)
         .to(
+          h1Ref.current,
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 0.8,
+          },
+          0.3,
+        )
+        .to(
           pRef.current,
           {
             opacity: 1,
@@ -259,7 +274,7 @@ export default function InfiniteHero({
             filter: "blur(0px)",
             duration: 0.6,
           },
-          0.5,
+          "-=0.3",
         )
         .to(ctas, { opacity: 1, y: 0, duration: 0.6, stagger: 0.08 }, "-=0.2");
     },
@@ -280,19 +295,15 @@ export default function InfiniteHero({
 
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background" />
 
-      {/* Particle Text Effect - Full screen interactive */}
-      <div className="absolute inset-0 z-10">
-        <ParticleTextEffect
-          text={title}
-          colors={['ffffff', 'e0e0e0', 'c0c0c0', 'a0a0a0', '808080']}
-          animationForce={80}
-          particleDensity={4}
-        />
-      </div>
-
-      {/* Subtitle and CTAs */}
-      <div className="absolute bottom-20 left-0 right-0 z-20 mx-auto max-w-4xl px-6 text-center">
+      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
         <div className="flex flex-col items-center gap-6">
+          <h1
+            ref={h1Ref}
+            className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
+          >
+            {title}
+          </h1>
+
           <p
             ref={pRef}
             className="max-w-2xl text-lg text-muted-foreground sm:text-xl"
