@@ -242,8 +242,9 @@ export default function InfiniteHero({
       gsap.set(bgRef.current, { filter: "blur(28px)" });
       gsap.set(h1Ref.current, {
         opacity: 0,
-        y: 24,
-        filter: "blur(8px)",
+        y: 40,
+        filter: "blur(12px)",
+        scale: 0.95,
       });
       gsap.set(pRef.current, {
         opacity: 0,
@@ -254,7 +255,7 @@ export default function InfiniteHero({
       const ctas = ctaRef.current ? Array.from(ctaRef.current.children) : [];
       if (ctas.length) gsap.set(ctas, { opacity: 0, y: 16 });
 
-      const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
       tl.to(bgRef.current, { filter: "blur(0px)", duration: 1.2 }, 0)
         .to(
           h1Ref.current,
@@ -262,9 +263,11 @@ export default function InfiniteHero({
             opacity: 1,
             y: 0,
             filter: "blur(0px)",
-            duration: 0.8,
+            scale: 1,
+            duration: 1.2,
+            ease: "power4.out",
           },
-          0.3,
+          0.4,
         )
         .to(
           pRef.current,
@@ -274,7 +277,7 @@ export default function InfiniteHero({
             filter: "blur(0px)",
             duration: 0.6,
           },
-          "-=0.3",
+          "-=0.5",
         )
         .to(ctas, { opacity: 1, y: 0, duration: 0.6, stagger: 0.08 }, "-=0.2");
     },
@@ -299,7 +302,7 @@ export default function InfiniteHero({
         <div className="flex flex-col items-center gap-6">
           <h1
             ref={h1Ref}
-            className="text-4xl font-semibold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
+            className="text-4xl font-light tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
           >
             {title}
           </h1>
