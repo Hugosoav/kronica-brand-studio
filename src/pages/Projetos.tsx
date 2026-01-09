@@ -1,52 +1,9 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import Layout from "@/components/Layout";
-
-const projects = [
-  {
-    id: 1,
-    title: "Café Origem",
-    category: "Branding Completo",
-    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=400&fit=crop",
-    year: "2024"
-  },
-  {
-    id: 2,
-    title: "Studio Arte",
-    category: "Identidade Visual",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
-    year: "2024"
-  },
-  {
-    id: 3,
-    title: "Minimal Store",
-    category: "Rebranding",
-    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=400&fit=crop",
-    year: "2023"
-  },
-  {
-    id: 4,
-    title: "Nova Arquitetura",
-    category: "Branding Completo",
-    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&h=400&fit=crop",
-    year: "2023"
-  },
-  {
-    id: 5,
-    title: "Jardim Botânico",
-    category: "Identidade Visual",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop",
-    year: "2023"
-  },
-  {
-    id: 6,
-    title: "Tech Solutions",
-    category: "Presença Digital",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop",
-    year: "2024"
-  },
-];
+import { projects } from "@/data/projects";
 
 const Projetos = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -93,15 +50,16 @@ const Projetos = () => {
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project, index) => (
-              <div
+              <Link
+                to={`/projetos/${project.id}`}
                 key={project.id}
-                className="group cursor-pointer animate-fade-in-up"
+                className="group cursor-pointer animate-fade-in-up block"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="relative overflow-hidden mb-4">
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                   <img
-                    src={project.image}
+                    src={project.images.cover}
                     alt={project.title}
                     className="w-full aspect-[3/2] object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -115,7 +73,7 @@ const Projetos = () => {
                   </div>
                   <span className="text-sm text-primary/40">{project.year}</span>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 

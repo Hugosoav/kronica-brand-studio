@@ -4,57 +4,16 @@ import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import FloatingCardGallery from "@/components/ui/floating-card-gallery";
 import InfiniteHero from "@/components/ui/infinite-hero";
+import { projects } from "@/data/projects";
 
-const projects = [
-  {
-    title: "Café Origem",
-    description: "Identidade completa para cafeteria artesanal com foco em origens únicas.",
-    fullDescription: "Desenvolvemos uma identidade visual que reflete a jornada do grão até a xícara. O projeto incluiu logo, paleta de cores terrosas, tipografia artesanal e sistema de embalagens.",
-    category: "Branding Completo",
-    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&h=400&fit=crop",
-    tags: ["Branding", "Identidade Visual", "Embalagens"]
-  },
-  {
-    title: "Studio Arte",
-    description: "Rebranding para estúdio de design com proposta minimalista e contemporânea.",
-    fullDescription: "O Studio Arte precisava de uma identidade que comunicasse sofisticação e criatividade. Criamos um sistema visual flexível que se adapta a diferentes aplicações.",
-    category: "Identidade Visual",
-    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop",
-    tags: ["Rebranding", "Design", "Minimalismo"]
-  },
-  {
-    title: "Minimal Store",
-    description: "E-commerce de moda sustentável com estética clean e atemporal.",
-    fullDescription: "A Minimal Store é uma marca de moda sustentável que valoriza a simplicidade. O projeto envolveu desde o naming até a presença digital completa.",
-    category: "Rebranding",
-    image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=400&fit=crop",
-    tags: ["E-commerce", "Moda", "Sustentabilidade"]
-  },
-  {
-    title: "Nova Arquitetura",
-    description: "Escritório de arquitetura com foco em projetos residenciais de alto padrão.",
-    fullDescription: "Uma identidade que traduz precisão e sofisticação. O sistema visual utiliza linhas geométricas e uma paleta neutra que reflete a estética dos projetos do escritório.",
-    category: "Branding Completo",
-    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=600&h=400&fit=crop",
-    tags: ["Arquitetura", "Premium", "Identidade Visual"]
-  },
-  {
-    title: "Jardim Botânico",
-    description: "Identidade para espaço verde urbano focado em educação ambiental.",
-    fullDescription: "Projeto que une natureza e design. A identidade traz elementos orgânicos e uma paleta verde vibrante que conecta visitantes ao propósito educativo do espaço.",
-    category: "Identidade Visual",
-    image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=600&h=400&fit=crop",
-    tags: ["Natureza", "Educação", "Branding"]
-  },
-  {
-    title: "Tech Solutions",
-    description: "Startup de tecnologia com presença digital moderna e inovadora.",
-    fullDescription: "Uma marca tech que comunica inovação sem perder a humanidade. O projeto incluiu branding completo e diretrizes para presença digital em múltiplas plataformas.",
-    category: "Presença Digital",
-    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop",
-    tags: ["Tecnologia", "Digital", "Startup"]
-  },
-];
+const galleryCards = projects.map(p => ({
+  title: p.title,
+  description: p.description,
+  fullDescription: p.fullDescription,
+  category: p.category,
+  image: p.images.cover,
+  tags: p.tags
+}));
 
 const Index = () => {
   return (
@@ -84,7 +43,7 @@ const Index = () => {
           </div>
 
           <FloatingCardGallery 
-            cards={projects} 
+            cards={galleryCards} 
             maxCards={6}
             accentColor="rgba(255, 255, 255, 0.1)"
           />
