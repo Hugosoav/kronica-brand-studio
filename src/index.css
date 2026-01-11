@@ -12,36 +12,36 @@
     --background: 0 0% 0%; /* Pure Black */
     --foreground: 0 0% 100%; /* Pure White */
 
-    --card: 0 0% 0%; /* Pure Black */
-    --card-foreground: 0 0% 100%; /* Pure White */
+    --card: 0 0% 100%; /* Pure White */
+    --card-foreground: 0 0% 0%; /* Pure Black */
 
-    --popover: 0 0% 0%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
 
     --primary: 0 0% 100%; /* Pure White */
     --primary-foreground: 0 0% 0%; /* Pure Black */
 
-    --secondary: 0 0% 0%; /* Pure Black */
-    --secondary-foreground: 0 0% 100%; /* Pure White */
+    --secondary: 0 0% 100%; /* Pure White */
+    --secondary-foreground: 0 0% 0%; /* Pure Black */
 
-    --muted: 0 0% 0%; /* Pure Black */
-    --muted-foreground: 0 0% 70%; /* Light for contrast */
+    --muted: 0 0% 100%; /* Pure White */
+    --muted-foreground: 0 0% 0%; /* Pure Black */
 
-    --accent: 0 0% 0%; /* Pure Black */
-    --accent-foreground: 0 0% 100%; /* Pure White */
+    --accent: 0 0% 100%; /* Pure White */
+    --accent-foreground: 0 0% 0%; /* Pure Black */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%; /* Subtle border */
-    --input: 0 0% 0%;
+    --border: 0 0% 100%; /* White border */
+    --input: 0 0% 100%;
     --ring: 0 0% 100%;
 
     --radius: 0.25rem;
 
     /* Custom Kronica tokens */
     --kronica-light: 0 0% 100%; /* Pure White */
-    --kronica-medium: 0 0% 70%; /* Light for contrast */
+    --kronica-medium: 0 0% 100%; /* Pure White */
     --kronica-dark: 0 0% 0%; /* Pure Black */
     --kronica-black: 0 0% 0%; /* Pure Black */
   }
@@ -49,20 +49,20 @@
   .dark {
     --background: 0 0% 0%;
     --foreground: 0 0% 100%;
-    --card: 0 0% 0%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 0%;
-    --popover-foreground: 0 0% 100%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
     --primary: 0 0% 100%;
     --primary-foreground: 0 0% 0%;
-    --secondary: 0 0% 0%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 0%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 0 0% 0%;
-    --accent-foreground: 0 0% 100%;
-    --border: 0 0% 20%;
-    --input: 0 0% 0%;
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 100%;
+    --muted-foreground: 0 0% 0%;
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 0%;
+    --border: 0 0% 100%;
+    --input: 0 0% 100%;
     --ring: 0 0% 100%;
   }
 }
