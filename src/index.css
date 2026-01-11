@@ -8,62 +8,62 @@
 
 @layer base {
   :root {
-    /* Kronica Color Palette - Dark Theme */
-    --background: 0 0% 7%; /* #111111 */
-    --foreground: 0 0% 95%; /* #F1F1F1 */
+    /* Kronica Color Palette - Pure Black & White */
+    --background: 0 0% 0%; /* Pure Black */
+    --foreground: 0 0% 100%; /* Pure White */
 
-    --card: 0 0% 12%; /* Slightly lighter than background */
-    --card-foreground: 0 0% 95%; /* #F1F1F1 */
+    --card: 0 0% 0%; /* Pure Black */
+    --card-foreground: 0 0% 100%; /* Pure White */
 
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 0 0% 95%; /* #F1F1F1 */
-    --primary-foreground: 0 0% 7%; /* #111111 */
+    --primary: 0 0% 100%; /* Pure White */
+    --primary-foreground: 0 0% 0%; /* Pure Black */
 
-    --secondary: 0 0% 17%; /* #2C2C2C */
-    --secondary-foreground: 0 0% 95%; /* #F1F1F1 */
+    --secondary: 0 0% 0%; /* Pure Black */
+    --secondary-foreground: 0 0% 100%; /* Pure White */
 
-    --muted: 0 0% 17%; /* #2C2C2C */
-    --muted-foreground: 0 0% 59%; /* #979797 */
+    --muted: 0 0% 0%; /* Pure Black */
+    --muted-foreground: 0 0% 70%; /* Light for contrast */
 
-    --accent: 0 0% 17%; /* #2C2C2C */
-    --accent-foreground: 0 0% 95%; /* #F1F1F1 */
+    --accent: 0 0% 0%; /* Pure Black */
+    --accent-foreground: 0 0% 100%; /* Pure White */
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 95%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 25%; /* Subtle border */
-    --input: 0 0% 17%;
-    --ring: 0 0% 95%;
+    --border: 0 0% 20%; /* Subtle border */
+    --input: 0 0% 0%;
+    --ring: 0 0% 100%;
 
     --radius: 0.25rem;
 
     /* Custom Kronica tokens */
-    --kronica-light: 0 0% 95%; /* #F1F1F1 */
-    --kronica-medium: 0 0% 59%; /* #979797 */
-    --kronica-dark: 0 0% 17%; /* #2C2C2C */
-    --kronica-black: 0 0% 7%; /* #111111 */
+    --kronica-light: 0 0% 100%; /* Pure White */
+    --kronica-medium: 0 0% 70%; /* Light for contrast */
+    --kronica-dark: 0 0% 0%; /* Pure Black */
+    --kronica-black: 0 0% 0%; /* Pure Black */
   }
 
   .dark {
-    --background: 0 0% 7%;
-    --foreground: 0 0% 95%;
-    --card: 0 0% 17%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 17%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 0 0% 95%;
-    --primary-foreground: 0 0% 7%;
-    --secondary: 0 0% 59%;
-    --secondary-foreground: 0 0% 7%;
-    --muted: 0 0% 17%;
-    --muted-foreground: 0 0% 59%;
-    --accent: 0 0% 59%;
-    --accent-foreground: 0 0% 7%;
-    --border: 0 0% 17%;
-    --input: 0 0% 17%;
-    --ring: 0 0% 95%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 0 0% 0%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 0%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 0 0% 0%;
+    --accent-foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 0%;
+    --ring: 0 0% 100%;
   }
 }
 
