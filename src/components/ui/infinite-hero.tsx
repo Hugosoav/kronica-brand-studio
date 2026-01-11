@@ -225,7 +225,7 @@ interface InfiniteHeroProps {
 
 export default function InfiniteHero({
   title = "Marcas que contam histórias",
-  subtitle = "Boas histórias não se contam em um único capítulo, mas se sustentam ao longo do tempo.",
+  subtitle = "Kronica Studio",
   primaryButtonText = "Conhecer",
   primaryButtonLink = "/sobre",
   secondaryButtonText = "Ver projetos",
