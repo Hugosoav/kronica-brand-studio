@@ -38,7 +38,7 @@ const Projetos = () => {
                 placeholder="Buscar projeto ou categoria..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-12 bg-transparent border-primary/20 focus:border-primary/40"
+                className="pl-12 bg-secondary/50 border-primary/20 focus:border-primary/40"
               />
             </div>
           </div>
