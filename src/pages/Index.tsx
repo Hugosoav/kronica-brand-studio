@@ -24,7 +24,7 @@ const Index = () => {
 
       {/* Hero Section */}
       <InfiniteHero 
-        title="Marcas que contam histórias"
+        title="Kronica Studio independente"
         subtitle="Boas histórias não se contam em um único capítulo, mas se sustentam ao longo do tempo."
         primaryButtonText="Conhecer"
         primaryButtonLink="/sobre"
