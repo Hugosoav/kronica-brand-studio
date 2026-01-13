@@ -298,30 +298,30 @@ export default function InfiniteHero({
 
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background" />
 
-      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <div className="flex flex-col items-center gap-6">
+      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
+        <div className="flex flex-col items-center gap-4 sm:gap-6">
           <h1
             ref={h1Ref}
-            className="text-4xl font-light tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl"
+            className="text-3xl font-light tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-7xl"
           >
             {title}
           </h1>
 
           <p
             ref={pRef}
-            className="max-w-2xl text-lg text-muted-foreground sm:text-xl"
+            className="max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl px-2"
           >
             {subtitle}
           </p>
 
-          <div ref={ctaRef} className="mt-4 flex flex-wrap items-center justify-center gap-4">
-            <Button asChild size="lg">
+          <div ref={ctaRef} className="mt-2 sm:mt-4 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <Button asChild size="default" className="sm:h-11 sm:px-8">
               <Link to={primaryButtonLink}>
                 {primaryButtonText}
               </Link>
             </Button>
 
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="default" className="sm:h-11 sm:px-8">
               <Link to={secondaryButtonLink}>
                 {secondaryButtonText}
               </Link>
