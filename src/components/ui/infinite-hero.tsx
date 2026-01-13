@@ -287,7 +287,7 @@ export default function InfiniteHero({
   return (
     <div
       ref={rootRef}
-      className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-background"
+      className="relative flex min-h-[85vh] sm:min-h-screen w-full items-center justify-center overflow-hidden bg-background"
     >
       <div
         ref={bgRef}

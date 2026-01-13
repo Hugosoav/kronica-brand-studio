@@ -33,11 +33,11 @@ const Index = () => {
       />
 
       {/* Portfolio Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-semibold animate-fade-in-up">Projetos</h2>
-            <p className="text-primary/60 mt-4 max-w-xl mx-auto animate-fade-in-up delay-100">
+      <section className="py-12 sm:py-16 md:py-24">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-6 sm:mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold animate-fade-in-up">Projetos</h2>
+            <p className="text-primary/60 mt-3 sm:mt-4 max-w-xl mx-auto text-sm sm:text-base animate-fade-in-up delay-100">
               Marcas que construímos com propósito, personalidade e intenção.
             </p>
           </div>
@@ -48,8 +48,8 @@ const Index = () => {
             accentColor="rgba(255, 255, 255, 0.1)"
           />
 
-          <div className="text-center mt-8 animate-fade-in-up">
-            <Button asChild size="lg" className="group">
+          <div className="text-center mt-6 sm:mt-8 animate-fade-in-up">
+            <Button asChild size="default" className="sm:h-11 sm:px-8 group">
               <Link to="/projetos">
                 Ver todos os projetos
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={18} />
