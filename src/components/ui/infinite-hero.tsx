@@ -6,8 +6,7 @@ import { gsap } from "gsap";
 import { useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { useNavigate } from "react-router-dom";
-import { Search } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { ChevronDown } from "lucide-react";
 
 interface ShaderPlaneProps {
   vertexShader: string;
@@ -215,6 +214,26 @@ function ShaderBackground({
   );
 }
 
+const serviceOptions = [
+  { label: "Tudo", value: "" },
+  { label: "Identidade Visual", value: "Identidade Visual" },
+  { label: "Branding", value: "Branding" },
+  { label: "Rebranding", value: "Rebranding" },
+  { label: "Design de Embalagens", value: "Embalagens" },
+  { label: "E-commerce", value: "E-commerce" },
+  { label: "Digital", value: "Digital" },
+];
+
+const industryOptions = [
+  { label: "Todos", value: "" },
+  { label: "Gastronomia", value: "Café" },
+  { label: "Arte & Cultura", value: "Arte" },
+  { label: "Moda", value: "Moda" },
+  { label: "Arquitetura", value: "Arquitetura" },
+  { label: "Natureza", value: "Natureza" },
+  { label: "Tecnologia", value: "Tecnologia" },
+];
+
 const projectKeywords = [
   "Branding",
   "Identidade Visual",
@@ -231,6 +250,54 @@ interface InfiniteHeroProps {
   subtitle?: string;
 }
 
+interface DropdownProps {
+  options: { label: string; value: string }[];
+  value: string;
+  onChange: (value: string) => void;
+  isOpen: boolean;
+  onToggle: () => void;
+  onClose: () => void;
+}
+
+function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: DropdownProps) {
+  const selectedLabel = options.find(o => o.value === value)?.label || options[0].label;
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <div className="relative" ref={dropdownRef}>
+      <button
+        onClick={onToggle}
+        className="inline-flex items-center gap-1 font-medium text-foreground hover:opacity-70 transition-opacity"
+      >
+        {selectedLabel}
+        <ChevronDown className={`h-4 w-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+      
+      {isOpen && (
+        <>
+          <div className="fixed inset-0 z-40" onClick={onClose} />
+          <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 min-w-[200px] bg-background border border-border rounded-lg shadow-lg py-2">
+            {options.map((option) => (
+              <button
+                key={option.value}
+                onClick={() => {
+                  onChange(option.value);
+                  onClose();
+                }}
+                className={`w-full text-left px-4 py-2 text-sm hover:bg-muted transition-colors ${
+                  value === option.value ? 'bg-muted font-medium' : ''
+                }`}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 export default function InfiniteHero({
   title = "Marcas que contam histórias",
   subtitle = "Kronica Studio",
@@ -242,30 +309,17 @@ export default function InfiniteHero({
   const ctaRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
   
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [selectedService, setSelectedService] = useState("");
+  const [selectedIndustry, setSelectedIndustry] = useState("");
+  const [serviceOpen, setServiceOpen] = useState(false);
+  const [industryOpen, setIndustryOpen] = useState(false);
 
-  const handleSearchClick = () => {
-    if (!searchOpen) {
-      setSearchOpen(true);
-      setTimeout(() => inputRef.current?.focus(), 100);
-    }
-  };
-
-  const handleSearch = (query: string) => {
-    if (query.trim()) {
-      navigate(`/projetos?search=${encodeURIComponent(query.trim())}`);
-    }
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") {
-      handleSearch(searchQuery);
-    } else if (e.key === "Escape") {
-      setSearchOpen(false);
-      setSearchQuery("");
-    }
+  const handleNavigate = () => {
+    const params = new URLSearchParams();
+    if (selectedService) params.set("service", selectedService);
+    if (selectedIndustry) params.set("industry", selectedIndustry);
+    const query = params.toString();
+    navigate(`/projetos${query ? `?${query}` : ""}`);
   };
 
   const handleKeywordClick = (keyword: string) => {
@@ -349,33 +403,39 @@ export default function InfiniteHero({
             {subtitle}
           </p>
 
-          <div ref={ctaRef} className="mt-2 sm:mt-4 flex flex-col items-center gap-4 w-full max-w-xl">
-            {/* Search Bar */}
+          <div ref={ctaRef} className="mt-2 sm:mt-4 flex flex-col items-center gap-6 w-full max-w-3xl">
+            {/* Search Bar with Dropdowns */}
             <div 
-              className={`relative flex items-center transition-all duration-300 ease-out ${
-                searchOpen ? "w-full" : "w-auto"
-              }`}
+              onClick={handleNavigate}
+              className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 bg-muted/80 backdrop-blur-sm rounded-full cursor-pointer hover:bg-muted transition-colors flex-wrap justify-center"
             >
-              <div
-                onClick={handleSearchClick}
-                className={`flex items-center gap-2 cursor-pointer border border-border/50 bg-background/80 backdrop-blur-sm rounded-full transition-all duration-300 ease-out hover:border-foreground/30 ${
-                  searchOpen ? "w-full px-4 py-3" : "px-5 py-3"
-                }`}
-              >
-                <Search className="h-5 w-5 text-muted-foreground flex-shrink-0" />
-                {searchOpen ? (
-                  <Input
-                    ref={inputRef}
-                    type="text"
-                    placeholder="Pesquisar projetos..."
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                    className="flex-1 bg-transparent border-none p-0 h-auto text-foreground placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
-                  />
-                ) : (
-                  <span className="text-muted-foreground text-sm sm:text-base">Pesquisar projetos</span>
-                )}
+              <span className="text-muted-foreground text-sm sm:text-base">Criamos</span>
+              <div onClick={(e) => e.stopPropagation()}>
+                <Dropdown
+                  options={serviceOptions}
+                  value={selectedService}
+                  onChange={setSelectedService}
+                  isOpen={serviceOpen}
+                  onToggle={() => {
+                    setServiceOpen(!serviceOpen);
+                    setIndustryOpen(false);
+                  }}
+                  onClose={() => setServiceOpen(false)}
+                />
+              </div>
+              <span className="text-muted-foreground text-sm sm:text-base">para</span>
+              <div onClick={(e) => e.stopPropagation()}>
+                <Dropdown
+                  options={industryOptions}
+                  value={selectedIndustry}
+                  onChange={setSelectedIndustry}
+                  isOpen={industryOpen}
+                  onToggle={() => {
+                    setIndustryOpen(!industryOpen);
+                    setServiceOpen(false);
+                  }}
+                  onClose={() => setIndustryOpen(false)}
+                />
               </div>
             </div>
 
@@ -385,7 +445,7 @@ export default function InfiniteHero({
                 <button
                   key={keyword}
                   onClick={() => handleKeywordClick(keyword)}
-                  className="px-3 py-1.5 text-xs sm:text-sm text-muted-foreground border border-border/30 rounded-full bg-background/50 backdrop-blur-sm hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-200"
+                  className="px-3 py-1.5 text-xs sm:text-sm text-muted-foreground bg-muted/60 rounded-md hover:bg-foreground hover:text-background transition-all duration-200"
                 >
                   {keyword}
                 </button>
