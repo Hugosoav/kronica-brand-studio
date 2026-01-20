@@ -3,10 +3,11 @@
 import { useGSAP } from "@gsap/react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { gsap } from "gsap";
-import { useMemo, useRef } from "react";
+import { useMemo, useRef, useState } from "react";
 import * as THREE from "three";
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import { Search } from "lucide-react";
+import { Input } from "@/components/ui/input";
 
 interface ShaderPlaneProps {
   vertexShader: string;
@@ -214,28 +215,62 @@ function ShaderBackground({
   );
 }
 
+const projectKeywords = [
+  "Branding",
+  "Identidade Visual",
+  "Rebranding",
+  "E-commerce",
+  "Minimalismo",
+  "Sustentabilidade",
+  "Arquitetura",
+  "Tecnologia",
+];
+
 interface InfiniteHeroProps {
   title?: string;
   subtitle?: string;
-  primaryButtonText?: string;
-  primaryButtonLink?: string;
-  secondaryButtonText?: string;
-  secondaryButtonLink?: string;
 }
 
 export default function InfiniteHero({
   title = "Marcas que contam histórias",
-  subtitle = "Boas histórias não se contam em um único capítulo, mas se sustentam ao longo do tempo.",
-  primaryButtonText = "Conhecer",
-  primaryButtonLink = "/sobre",
-  secondaryButtonText = "Ver projetos",
-  secondaryButtonLink = "/projetos",
+  subtitle = "Kronica Studio",
 }: InfiniteHeroProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const h1Ref = useRef<HTMLHeadingElement>(null);
   const pRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
+  
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleSearchClick = () => {
+    if (!searchOpen) {
+      setSearchOpen(true);
+      setTimeout(() => inputRef.current?.focus(), 100);
+    }
+  };
+
+  const handleSearch = (query: string) => {
+    if (query.trim()) {
+      navigate(`/projetos?search=${encodeURIComponent(query.trim())}`);
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter") {
+      handleSearch(searchQuery);
+    } else if (e.key === "Escape") {
+      setSearchOpen(false);
+      setSearchQuery("");
+    }
+  };
+
+  const handleKeywordClick = (keyword: string) => {
+    navigate(`/projetos?search=${encodeURIComponent(keyword)}`);
+  };
 
   useGSAP(
     () => {
@@ -314,18 +349,48 @@ export default function InfiniteHero({
             {subtitle}
           </p>
 
-          <div ref={ctaRef} className="mt-2 sm:mt-4 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
-            <Button asChild size="default" className="sm:h-11 sm:px-8">
-              <Link to={primaryButtonLink}>
-                {primaryButtonText}
-              </Link>
-            </Button>
+          <div ref={ctaRef} className="mt-2 sm:mt-4 flex flex-col items-center gap-4 w-full max-w-xl">
+            {/* Search Bar */}
+            <div 
+              className={`relative flex items-center transition-all duration-300 ease-out ${
+                searchOpen ? "w-full" : "w-auto"
+              }`}
+            >
+              <div
+                onClick={handleSearchClick}
+                className={`flex items-center gap-2 cursor-pointer border border-border/50 bg-background/80 backdrop-blur-sm rounded-full transition-all duration-300 ease-out hover:border-foreground/30 ${
+                  searchOpen ? "w-full px-4 py-3" : "px-5 py-3"
+                }`}
+              >
+                <Search className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+                {searchOpen ? (
+                  <Input
+                    ref={inputRef}
+                    type="text"
+                    placeholder="Pesquisar projetos..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onKeyDown={handleKeyDown}
+                    className="flex-1 bg-transparent border-none p-0 h-auto text-foreground placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:ring-offset-0"
+                  />
+                ) : (
+                  <span className="text-muted-foreground text-sm sm:text-base">Pesquisar projetos</span>
+                )}
+              </div>
+            </div>
 
-            <Button asChild variant="outline" size="default" className="sm:h-11 sm:px-8">
-              <Link to={secondaryButtonLink}>
-                {secondaryButtonText}
-              </Link>
-            </Button>
+            {/* Keywords */}
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              {projectKeywords.map((keyword) => (
+                <button
+                  key={keyword}
+                  onClick={() => handleKeywordClick(keyword)}
+                  className="px-3 py-1.5 text-xs sm:text-sm text-muted-foreground border border-border/30 rounded-full bg-background/50 backdrop-blur-sm hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-200"
+                >
+                  {keyword}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -26,10 +26,6 @@ const Index = () => {
       <InfiniteHero 
         title="Marcas que contam histórias"
         subtitle="Kronica Studio"
-        primaryButtonText="Conhecer"
-        primaryButtonLink="/sobre"
-        secondaryButtonText="Ver projetos"
-        secondaryButtonLink="/projetos"
       />
 
       {/* Portfolio Section */}
