@@ -234,16 +234,6 @@ const industryOptions = [
   { label: "Tecnologia", value: "Tecnologia" },
 ];
 
-const projectKeywords = [
-  "Branding",
-  "Identidade Visual",
-  "Rebranding",
-  "E-commerce",
-  "Minimalismo",
-  "Sustentabilidade",
-  "Arquitetura",
-  "Tecnologia",
-];
 
 interface InfiniteHeroProps {
   title?: string;
@@ -322,9 +312,6 @@ export default function InfiniteHero({
     navigate(`/projetos${query ? `?${query}` : ""}`);
   };
 
-  const handleKeywordClick = (keyword: string) => {
-    navigate(`/projetos?search=${encodeURIComponent(keyword)}`);
-  };
 
   useGSAP(
     () => {
@@ -437,19 +424,6 @@ export default function InfiniteHero({
                   onClose={() => setIndustryOpen(false)}
                 />
               </div>
-            </div>
-
-            {/* Keywords */}
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              {projectKeywords.map((keyword) => (
-                <button
-                  key={keyword}
-                  onClick={() => handleKeywordClick(keyword)}
-                  className="px-3 py-1.5 text-xs sm:text-sm text-muted-foreground bg-muted/60 rounded-md hover:bg-foreground hover:text-background transition-all duration-200"
-                >
-                  {keyword}
-                </button>
-              ))}
             </div>
           </div>
         </div>
