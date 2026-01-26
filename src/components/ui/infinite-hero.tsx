@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 import { useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { useNavigate } from "react-router-dom";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 
 interface ShaderPlaneProps {
   vertexShader: string;
@@ -261,10 +261,9 @@ interface DropdownProps {
 
 function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: DropdownProps) {
   const selectedLabel = options.find(o => o.value === value)?.label || options[0].label;
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="relative" ref={dropdownRef}>
+    <div className="relative">
       <button
         onClick={onToggle}
         className="inline-flex items-center gap-1 font-medium text-foreground hover:opacity-70 transition-opacity"
@@ -275,22 +274,35 @@ function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: Dropd
       
       {isOpen && (
         <>
-          <div className="fixed inset-0 z-40" onClick={onClose} />
-          <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 min-w-[220px] bg-background border border-border rounded-lg shadow-lg py-2 max-h-[300px] overflow-y-auto animate-scale-in scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent">
-            {options.map((option) => (
-              <button
-                key={option.value}
-                onClick={() => {
-                  onChange(option.value);
-                  onClose();
-                }}
-                className={`w-full text-left px-4 py-2.5 text-sm hover:bg-muted transition-colors ${
-                  value === option.value ? 'bg-muted font-medium' : ''
-                }`}
+          <div className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm" onClick={onClose} />
+          <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[90vw] max-w-2xl bg-background border border-border rounded-2xl shadow-2xl p-6 animate-scale-in">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-lg font-medium text-foreground">Selecione uma opção</h3>
+              <button 
+                onClick={onClose}
+                className="p-2 hover:bg-muted rounded-full transition-colors"
               >
-                {option.label}
+                <X className="h-5 w-5" />
               </button>
-            ))}
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {options.map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => {
+                    onChange(option.value);
+                    onClose();
+                  }}
+                  className={`text-left px-4 py-3 text-sm rounded-lg border transition-all hover:border-foreground/50 hover:bg-muted ${
+                    value === option.value 
+                      ? 'bg-foreground text-background border-foreground font-medium' 
+                      : 'border-border'
+                  }`}
+                >
+                  {option.label}
+                </button>
+              ))}
+            </div>
           </div>
         </>
       )}
