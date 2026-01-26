@@ -226,12 +226,22 @@ const serviceOptions = [
 
 const industryOptions = [
   { label: "Todos", value: "" },
-  { label: "Arte & Cultura", value: "Arte" },
-  { label: "Moda", value: "Moda" },
-  { label: "Arquitetura", value: "Arquitetura" },
+  { label: "Artes e Cultura", value: "Artes e Cultura" },
+  { label: "Cívico e Setor Público", value: "Cívico e Setor Público" },
+  { label: "Marcas de Consumo", value: "Marcas de Consumo" },
+  { label: "Educação", value: "Educação" },
+  { label: "Entretenimento", value: "Entretenimento" },
+  { label: "Moda e Beleza", value: "Moda e Beleza" },
+  { label: "Finanças", value: "Finanças" },
+  { label: "Alimentos e Bebidas", value: "Alimentos e Bebidas" },
+  { label: "Saúde", value: "Saúde" },
+  { label: "Hotelaria e Viagens", value: "Hotelaria e Viagens" },
+  { label: "Manufatura e Indústria", value: "Manufatura e Indústria" },
+  { label: "Serviços Profissionais", value: "Serviços Profissionais" },
+  { label: "Publicação e Editoração", value: "Publicação e Editoração" },
+  { label: "Mercado Imobiliário", value: "Mercado Imobiliário" },
   { label: "Tecnologia", value: "Tecnologia" },
-  { label: "Agências", value: "Agências" },
-  { label: "Campanhas", value: "Campanhas" },
+  { label: "Transporte", value: "Transporte" },
 ];
 
 
