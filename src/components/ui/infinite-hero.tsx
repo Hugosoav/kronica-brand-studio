@@ -219,9 +219,9 @@ const serviceOptions = [
   { label: "Identidade Visual", value: "Identidade Visual" },
   { label: "Branding", value: "Branding" },
   { label: "Rebranding", value: "Rebranding" },
-  { label: "Design de Embalagens", value: "Embalagens" },
-  { label: "E-commerce", value: "E-commerce" },
-  { label: "Digital", value: "Digital" },
+  { label: "Social Media", value: "Social Media" },
+  { label: "Impressos", value: "Impressos" },
+  { label: "Websites", value: "Websites" },
 ];
 
 const industryOptions = [
@@ -230,8 +230,9 @@ const industryOptions = [
   { label: "Arte & Cultura", value: "Arte" },
   { label: "Moda", value: "Moda" },
   { label: "Arquitetura", value: "Arquitetura" },
-  { label: "Natureza", value: "Natureza" },
   { label: "Tecnologia", value: "Tecnologia" },
+  { label: "Agências", value: "Agências" },
+  { label: "Campanhas", value: "Campanhas" },
 ];
 
 
