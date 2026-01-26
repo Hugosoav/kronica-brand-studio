@@ -276,7 +276,7 @@ function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: Dropd
       {isOpen && (
         <>
           <div className="fixed inset-0 z-40" onClick={onClose} />
-          <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 min-w-[200px] bg-background border border-border rounded-lg shadow-lg py-2">
+          <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 min-w-[220px] bg-background border border-border rounded-lg shadow-lg py-2 max-h-[300px] overflow-y-auto animate-scale-in scrollbar-thin scrollbar-thumb-muted scrollbar-track-transparent">
             {options.map((option) => (
               <button
                 key={option.value}
@@ -284,7 +284,7 @@ function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: Dropd
                   onChange(option.value);
                   onClose();
                 }}
-                className={`w-full text-left px-4 py-2 text-sm hover:bg-muted transition-colors ${
+                className={`w-full text-left px-4 py-2.5 text-sm hover:bg-muted transition-colors ${
                   value === option.value ? 'bg-muted font-medium' : ''
                 }`}
               >
