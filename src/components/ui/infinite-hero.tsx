@@ -274,7 +274,7 @@ function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: Dropd
       
       {isOpen && (
         <>
-          <div className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm" onClick={onClose} />
+          <div className="fixed inset-0 z-40 bg-background/60 backdrop-blur-md" onClick={onClose} />
           <div className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[90vw] max-w-2xl bg-background border border-border rounded-2xl shadow-2xl p-6 animate-scale-in">
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-lg font-medium text-foreground">Selecione uma opção</h3>
@@ -311,7 +311,7 @@ function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: Dropd
 }
 
 export default function InfiniteHero({
-  title = "Marcas que contam histórias",
+  title = "Design com narrativa",
   subtitle = "Kronica Studio",
 }: InfiniteHeroProps) {
   const rootRef = useRef<HTMLDivElement>(null);
