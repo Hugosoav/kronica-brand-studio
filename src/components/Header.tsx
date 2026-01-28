@@ -2,11 +2,15 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/components/ThemeToggle";
 import logoBranco from "@/assets/logo-branco.png";
+import logoPreto from "@/assets/logo-preto.png";
+import { useTheme } from "@/hooks/use-theme";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const { theme } = useTheme();
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -19,15 +23,19 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/20">
-      <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
+      <div className="container mx-auto px-4 py-3">
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <img src={logoBranco} alt="Kronica" className="h-6 md:h-7" />
+            <img 
+              src={theme === "dark" ? logoBranco : logoPreto} 
+              alt="Kronica" 
+              className="h-5 md:h-6" 
+            />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -41,8 +49,9 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Search Button */}
-          <div className="hidden md:block">
+          {/* Theme Toggle & Search */}
+          <div className="hidden md:flex items-center gap-2">
+            <ThemeToggle />
             <Button asChild size="sm" variant="ghost">
               <Link to="/projetos" aria-label="Buscar projetos">
                 <Search size={20} />
@@ -51,19 +60,22 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden p-2"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex md:hidden items-center gap-2">
+            <ThemeToggle />
+            <button
+              className="p-2"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </nav>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden pt-4 pb-2 animate-fade-in">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}

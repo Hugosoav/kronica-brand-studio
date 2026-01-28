@@ -91,14 +91,14 @@ const Contato = () => {
       <meta name="description" content="A equipe responde com próximos passos, prazos e direcionamento. Entre em contato com a Kronica." />
 
       {/* Hero */}
-      <section className="py-24 md:py-32">
-        <div className="container mx-auto px-6">
+      <section className="py-16 md:py-24">
+        <div className="container mx-auto px-4">
           <div className="max-w-4xl">
-            <div className="w-16 h-px bg-border/50 mb-8" />
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6 animate-fade-in-up">
+            <div className="w-16 h-px bg-border/50 mb-6" />
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold leading-tight mb-4 animate-fade-in-up">
               Vamos conversar?
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl animate-fade-in-up delay-100">
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl animate-fade-in-up delay-100">
               A equipe responde com próximos passos, prazos e direcionamento.
             </p>
           </div>
@@ -106,20 +106,20 @@ const Contato = () => {
       </section>
 
       {/* Editorial Line */}
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4">
         <div className="editorial-line" />
       </div>
 
       {/* Form & Contacts */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-16">
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-12">
             {/* Form */}
             <div>
-              <h2 className="text-2xl font-semibold mb-8">Envie uma mensagem</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
+              <h2 className="text-xl font-semibold mb-6">Envie uma mensagem</h2>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <div className="space-y-1.5">
                     <Label htmlFor="nome">Nome *</Label>
                     <Input
                       id="nome"
@@ -130,8 +130,8 @@ const Contato = () => {
                       className="bg-background border-border/50 focus:border-foreground"
                     />
                   </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="email">E-mail *</Label>
+                  <div className="space-y-1.5">
+                    <Label htmlFor="email">Email *</Label>
                     <Input
                       id="email"
                       name="email"
@@ -144,19 +144,19 @@ const Contato = () => {
                   </div>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <div className="space-y-1.5">
                     <Label htmlFor="whatsapp">WhatsApp (opcional)</Label>
                     <Input
                       id="whatsapp"
                       name="whatsapp"
                       value={formData.whatsapp}
                       onChange={handleChange}
-                      placeholder="+55 11 99999-9999"
+                      placeholder="+55 11 99999 9999"
                       className="bg-background border-border/50 focus:border-foreground"
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="space-y-1.5">
                     <Label htmlFor="marca">Nome da marca/negócio *</Label>
                     <Input
                       id="marca"
@@ -169,7 +169,7 @@ const Contato = () => {
                   </div>
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <Label htmlFor="servico">Serviço de interesse *</Label>
                   <Select value={formData.servico} onValueChange={handleSelectChange} required>
                     <SelectTrigger className="bg-background border-border/50 focus:border-foreground">
@@ -186,7 +186,7 @@ const Contato = () => {
                   </Select>
                 </div>
 
-                <div className="space-y-2">
+                <div className="space-y-1.5">
                   <Label htmlFor="mensagem">Mensagem *</Label>
                   <Textarea
                     id="mensagem"
@@ -194,7 +194,7 @@ const Contato = () => {
                     value={formData.mensagem}
                     onChange={handleChange}
                     required
-                    rows={5}
+                    rows={4}
                     placeholder="Conte sobre o objetivo, momento atual e prazo desejado..."
                     className="bg-background border-border/50 focus:border-foreground resize-none"
                   />
@@ -206,7 +206,7 @@ const Contato = () => {
                   ) : (
                     <>
                       Enviar mensagem
-                      <Send className="ml-2" size={18} />
+                      <Send className="ml-2" size={16} />
                     </>
                   )}
                 </Button>
@@ -215,19 +215,19 @@ const Contato = () => {
 
             {/* Contact Cards */}
             <div>
-              <h2 className="text-2xl font-semibold mb-8">Contatos rápidos</h2>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <h2 className="text-xl font-semibold mb-6">Contatos rápidos</h2>
+              <div className="grid sm:grid-cols-2 gap-3">
                 {contactCards.map((contact, index) => (
                   <a
                     key={index}
                     href={contact.href}
                     target={contact.href.startsWith("http") ? "_blank" : undefined}
                     rel={contact.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                    className="p-6 border border-border/30 hover:bg-secondary hover:text-secondary-foreground transition-all group"
+                    className="p-4 border border-border/30 hover:bg-secondary hover:text-secondary-foreground transition-all group"
                   >
-                    <contact.icon className="mb-4 group-hover:text-secondary-foreground" size={24} strokeWidth={1.5} />
-                    <h3 className="font-semibold mb-1">{contact.title}</h3>
-                    <p className="text-sm text-muted-foreground group-hover:text-secondary-foreground/70">
+                    <contact.icon className="mb-3 group-hover:text-secondary-foreground" size={20} strokeWidth={1.5} />
+                    <h3 className="font-semibold text-sm mb-0.5">{contact.title}</h3>
+                    <p className="text-xs text-muted-foreground group-hover:text-secondary-foreground/70">
                       {contact.value}
                     </p>
                   </a>
@@ -235,10 +235,9 @@ const Contato = () => {
               </div>
 
               {/* Microcopy */}
-              <div className="mt-12 p-8 bg-secondary text-secondary-foreground">
+              <div className="mt-8 p-6 bg-secondary text-secondary-foreground">
                 <p className="text-sm text-secondary-foreground/70">
-                  A equipe da Kronica atende de forma digital, com processo claro e alinhamentos objetivos. 
-                  Projetos podem ser realizados para clientes de qualquer lugar do Brasil.
+                  A equipe da Kronica atende de forma digital, com processo claro e alinhamentos objetivos. Projetos podem ser realizados para clientes de qualquer lugar do Brasil.
                 </p>
               </div>
             </div>

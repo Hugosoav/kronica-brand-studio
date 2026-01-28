@@ -8,6 +8,45 @@
 
 @layer base {
   :root {
+    /* Kronica Color Palette - Light Theme */
+    --background: 0 0% 98%; /* #FAFAFA */
+    --foreground: 0 0% 7%; /* #111111 */
+
+    --card: 0 0% 100%; /* White */
+    --card-foreground: 0 0% 7%; /* #111111 */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+
+    --primary: 0 0% 7%; /* #111111 */
+    --primary-foreground: 0 0% 98%; /* #FAFAFA */
+
+    --secondary: 0 0% 92%; /* #EBEBEB */
+    --secondary-foreground: 0 0% 7%; /* #111111 */
+
+    --muted: 0 0% 92%; /* #EBEBEB */
+    --muted-foreground: 0 0% 40%; /* #666666 */
+
+    --accent: 0 0% 92%; /* #EBEBEB */
+    --accent-foreground: 0 0% 7%; /* #111111 */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 85%; /* Light border */
+    --input: 0 0% 92%;
+    --ring: 0 0% 7%;
+
+    --radius: 0.25rem;
+
+    /* Custom Kronica tokens */
+    --kronica-light: 0 0% 98%; /* #FAFAFA */
+    --kronica-medium: 0 0% 40%; /* #666666 */
+    --kronica-dark: 0 0% 17%; /* #2C2C2C */
+    --kronica-black: 0 0% 7%; /* #111111 */
+  }
+
+  .dark {
     /* Kronica Color Palette - Dark Theme */
     --background: 0 0% 7%; /* #111111 */
     --foreground: 0 0% 95%; /* #F1F1F1 */
@@ -37,33 +76,11 @@
     --input: 0 0% 17%;
     --ring: 0 0% 95%;
 
-    --radius: 0.25rem;
-
     /* Custom Kronica tokens */
     --kronica-light: 0 0% 95%; /* #F1F1F1 */
     --kronica-medium: 0 0% 59%; /* #979797 */
     --kronica-dark: 0 0% 17%; /* #2C2C2C */
     --kronica-black: 0 0% 7%; /* #111111 */
-  }
-
-  .dark {
-    --background: 0 0% 7%;
-    --foreground: 0 0% 95%;
-    --card: 0 0% 17%;
-    --card-foreground: 0 0% 95%;
-    --popover: 0 0% 17%;
-    --popover-foreground: 0 0% 95%;
-    --primary: 0 0% 95%;
-    --primary-foreground: 0 0% 7%;
-    --secondary: 0 0% 59%;
-    --secondary-foreground: 0 0% 7%;
-    --muted: 0 0% 17%;
-    --muted-foreground: 0 0% 59%;
-    --accent: 0 0% 59%;
-    --accent-foreground: 0 0% 7%;
-    --border: 0 0% 17%;
-    --input: 0 0% 17%;
-    --ring: 0 0% 95%;
   }
 }
 

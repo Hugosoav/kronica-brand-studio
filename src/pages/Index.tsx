@@ -20,7 +20,7 @@ const Index = () => {
     <Layout>
       {/* SEO */}
       <title>Kronica — Branding e Design Estratégico</title>
-      <meta name="description" content="A equipe da Kronica cria identidades e sistemas visuais com clareza, consistência e estética — do posicionamento à aplicação." />
+      <meta name="description" content="A equipe da Kronica cria identidades e sistemas visuais com clareza, consistência e estética, do posicionamento à aplicação." />
 
       {/* Hero Section */}
       <InfiniteHero 
@@ -29,11 +29,11 @@ const Index = () => {
       />
 
       {/* Portfolio Section */}
-      <section className="py-24">
-        <div className="container mx-auto px-6">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-semibold animate-fade-in-up">Projetos</h2>
-            <p className="text-primary/60 mt-4 max-w-xl mx-auto animate-fade-in-up delay-100">
+      <section className="py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-6">
+            <h2 className="text-2xl md:text-3xl font-semibold animate-fade-in-up">Projetos</h2>
+            <p className="text-muted-foreground mt-3 max-w-xl mx-auto animate-fade-in-up delay-100">
               Marcas que construímos com propósito, personalidade e intenção.
             </p>
           </div>
@@ -44,7 +44,7 @@ const Index = () => {
             accentColor="rgba(255, 255, 255, 0.1)"
           />
 
-          <div className="text-center mt-8 animate-fade-in-up">
+          <div className="text-center mt-6 animate-fade-in-up">
             <Button asChild size="lg" className="group">
               <Link to="/projetos">
                 Ver todos os projetos
