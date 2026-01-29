@@ -2,15 +2,11 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import ThemeToggle from "@/components/ThemeToggle";
 import logoBranco from "@/assets/logo-branco.png";
-import logoPreto from "@/assets/logo-preto.png";
-import { useTheme } from "@/hooks/use-theme";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-  const { theme } = useTheme();
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -28,7 +24,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
-              src={theme === "dark" ? logoBranco : logoPreto} 
+              src={logoBranco} 
               alt="Kronica" 
               className="h-5 md:h-6" 
             />
@@ -49,9 +45,8 @@ const Header = () => {
             ))}
           </div>
 
-          {/* Theme Toggle & Search */}
+          {/* Search */}
           <div className="hidden md:flex items-center gap-2">
-            <ThemeToggle />
             <Button asChild size="sm" variant="ghost">
               <Link to="/projetos" aria-label="Buscar projetos">
                 <Search size={20} />
@@ -61,7 +56,6 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <div className="flex md:hidden items-center gap-2">
-            <ThemeToggle />
             <button
               className="p-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
