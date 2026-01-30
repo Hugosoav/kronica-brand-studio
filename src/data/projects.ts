@@ -20,6 +20,9 @@ import polis02 from "@/assets/projects/polis/polis-02.jpg";
 import polis03 from "@/assets/projects/polis/polis-03.jpg";
 import polis04 from "@/assets/projects/polis/polis-04.jpg";
 import polis05 from "@/assets/projects/polis/polis-05.jpg";
+import polis06 from "@/assets/projects/polis/polis-06.jpg";
+import polis07 from "@/assets/projects/polis/polis-07.jpg";
+import polis08 from "@/assets/projects/polis/polis-08.jpg";
 
 export const projects: Project[] = [
   {
@@ -34,7 +37,7 @@ export const projects: Project[] = [
     services: ["Identidade Visual", "Design de Logo", "Aplicações"],
     images: {
       cover: polis01,
-      gallery: [polis01, polis02, polis03, polis04, polis05]
+      gallery: [polis01, polis02, polis03, polis04, polis05, polis06, polis07, polis08]
     },
     tags: ["Construção", "Engenharia", "Identidade Visual"]
   },
