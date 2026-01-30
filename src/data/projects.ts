@@ -15,7 +15,29 @@ export interface Project {
   tags: string[];
 }
 
+import polis01 from "@/assets/projects/polis/polis-01.jpg";
+import polis02 from "@/assets/projects/polis/polis-02.jpg";
+import polis03 from "@/assets/projects/polis/polis-03.jpg";
+import polis04 from "@/assets/projects/polis/polis-04.jpg";
+import polis05 from "@/assets/projects/polis/polis-05.jpg";
+
 export const projects: Project[] = [
+  {
+    id: "polis-engenharia",
+    title: "Pólis Engenharia",
+    category: "Identidade Visual",
+    description: "Logo simétrico e forte que representa solidez e estrutura para empresa de construção.",
+    fullDescription: "Desenvolvemos uma identidade visual robusta e marcante para a Pólis Engenharia, uma empresa do setor de construção civil. O projeto resultou em uma marca que transmite confiança, estabilidade e profissionalismo.",
+    concept: "O conceito central foi criar um logo simétrico e forte, representando solidez e estrutura. As formas geométricas precisas refletem a engenharia e a construção, enquanto o elemento triangular adiciona dinamismo e remete ao ícone de uma casa ou telhado. A paleta em tons de azul escuro e laranja transmite profissionalismo e energia.",
+    year: "2024",
+    client: "Pólis Engenharia",
+    services: ["Identidade Visual", "Design de Logo", "Aplicações"],
+    images: {
+      cover: polis01,
+      gallery: [polis01, polis02, polis03, polis04, polis05]
+    },
+    tags: ["Construção", "Engenharia", "Identidade Visual"]
+  },
   {
     id: "cafe-origem",
     title: "Café Origem",
