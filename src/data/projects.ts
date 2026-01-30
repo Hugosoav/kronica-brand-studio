@@ -23,6 +23,7 @@ import polis05 from "@/assets/projects/polis/polis-05.jpg";
 import polis06 from "@/assets/projects/polis/polis-06.jpg";
 import polis07 from "@/assets/projects/polis/polis-07.jpg";
 import polis08 from "@/assets/projects/polis/polis-08.jpg";
+import polisCover from "@/assets/projects/polis/polis-cover.jpg";
 
 export const projects: Project[] = [
   {
@@ -36,7 +37,7 @@ export const projects: Project[] = [
     client: "Pólis Engenharia",
     services: ["Identidade Visual", "Design de Logo", "Aplicações"],
     images: {
-      cover: polis01,
+      cover: polisCover,
       gallery: [polis01, polis02, polis03, polis04, polis05, polis06, polis07, polis08]
     },
     tags: ["Construção", "Engenharia", "Identidade Visual"]
