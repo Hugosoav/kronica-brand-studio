@@ -390,6 +390,15 @@ export default function InfiniteHero({
           "-=0.5",
         )
         .to(ctas, { opacity: 1, y: 0, duration: 0.6, stagger: 0.08 }, "-=0.2");
+
+      // Continuous shimmer animation on title
+      gsap.to(h1Ref.current, {
+        backgroundPosition: "200% center",
+        duration: 3,
+        ease: "none",
+        repeat: -1,
+        delay: 1.5,
+      });
     },
     { scope: rootRef },
   );
@@ -412,7 +421,14 @@ export default function InfiniteHero({
         <div className="flex flex-col items-center gap-4 sm:gap-6">
           <h1
             ref={h1Ref}
-            className="text-3xl font-light tracking-tight text-foreground sm:text-4xl md:text-5xl lg:text-7xl"
+            className="text-3xl font-light tracking-tight sm:text-4xl md:text-5xl lg:text-7xl"
+            style={{
+              background: "linear-gradient(90deg, hsl(var(--foreground)) 0%, hsl(var(--foreground)) 40%, hsl(var(--muted-foreground)) 50%, hsl(var(--foreground)) 60%, hsl(var(--foreground)) 100%)",
+              backgroundSize: "200% auto",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
           >
             {title}
           </h1>
