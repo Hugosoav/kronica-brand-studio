@@ -195,22 +195,8 @@ export default function InfiniteHero({
   return (
     <div
       ref={rootRef}
-      className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-background"
+      className="relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
-      {/* Minimalist black background with subtle gradient */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-background via-background to-secondary/20" />
-      
-      {/* Subtle grid pattern */}
-      <div 
-        className="pointer-events-none absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
-        }}
-      />
-      
-      {/* Radial glow effect */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_hsl(var(--foreground)/0.03)_0%,_transparent_70%)]" />
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
         <div className="flex flex-col items-center gap-4 sm:gap-6">
