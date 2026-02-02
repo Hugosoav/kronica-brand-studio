@@ -2,16 +2,9 @@
 
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import { useRef, useState, useEffect, useCallback } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronDown, X } from "lucide-react";
-import { projects } from "@/data/projects";
-
-// Collect all project images for the hero slideshow
-const heroImages = projects.flatMap(project => [
-  project.images.cover,
-  ...project.images.gallery.slice(0, 2) // Take cover + 2 gallery images per project
-]).slice(0, 12); // Limit to 12 images total
 
 const serviceOptions = [
   { label: "Tudo", value: "" },
@@ -135,34 +128,6 @@ export default function InfiniteHero({
   const [selectedIndustry, setSelectedIndustry] = useState("");
   const [serviceOpen, setServiceOpen] = useState(false);
   const [industryOpen, setIndustryOpen] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [nextImageIndex, setNextImageIndex] = useState(1);
-
-  // Auto-rotate images every 4 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsTransitioning(true);
-      setNextImageIndex((currentImageIndex + 1) % heroImages.length);
-      
-      setTimeout(() => {
-        setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-        setIsTransitioning(false);
-      }, 800);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [currentImageIndex]);
-
-  const handleImageClick = useCallback((index: number) => {
-    if (index === currentImageIndex) return;
-    setIsTransitioning(true);
-    setNextImageIndex(index);
-    setTimeout(() => {
-      setCurrentImageIndex(index);
-      setIsTransitioning(false);
-    }, 800);
-  }, [currentImageIndex]);
 
   const handleNavigate = () => {
     const params = new URLSearchParams();
@@ -232,60 +197,6 @@ export default function InfiniteHero({
       ref={rootRef}
       className="relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
-      {/* Image Background with Rotation */}
-      <div className="absolute inset-0 z-0">
-        {/* Current image */}
-        <div
-          className={`absolute inset-0 transition-all duration-800 ease-out ${
-            isTransitioning ? 'opacity-0 scale-105' : 'opacity-100 scale-100'
-          }`}
-          style={{
-            backgroundImage: `url(${heroImages[currentImageIndex]})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        {/* Next image (preloaded underneath) */}
-        <div
-          className={`absolute inset-0 transition-all duration-800 ease-out ${
-            isTransitioning ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-          }`}
-          style={{
-            backgroundImage: `url(${heroImages[nextImageIndex]})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-          }}
-        />
-        {/* Ken Burns subtle animation */}
-        <div
-          className="absolute inset-0 animate-[kenburns_20s_ease-in-out_infinite]"
-          style={{
-            backgroundImage: `url(${heroImages[currentImageIndex]})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: isTransitioning ? 0 : 0.3,
-          }}
-        />
-        {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-background/70" />
-        {/* Gradient fade to content */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-background/50" />
-        {/* Image indicator dots */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
-          {heroImages.slice(0, 6).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => handleImageClick(index)}
-              className={`h-1.5 rounded-full transition-all duration-500 ${
-                index === currentImageIndex 
-                  ? 'bg-foreground w-8' 
-                  : 'bg-foreground/30 hover:bg-foreground/50 w-1.5'
-              }`}
-              aria-label={`Imagem ${index + 1}`}
-            />
-          ))}
-        </div>
-      </div>
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
         <div className="flex flex-col items-center gap-4 sm:gap-6">
