@@ -2,10 +2,17 @@
 
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronDown, X } from "lucide-react";
-import heroVideo from "@/assets/hero-video.mp4";
+
+// Import all hero videos
+import heroModern from "@/assets/videos/hero-modern.mp4";
+import heroArt from "@/assets/videos/hero-art.mp4";
+import heroTime from "@/assets/videos/hero-time.mp4";
+import heroTypography from "@/assets/videos/hero-typography.mp4";
+
+const heroVideos = [heroModern, heroArt, heroTime, heroTypography];
 
 const serviceOptions = [
   { label: "Tudo", value: "" },
@@ -129,6 +136,33 @@ export default function InfiniteHero({
   const [selectedIndustry, setSelectedIndustry] = useState("");
   const [serviceOpen, setServiceOpen] = useState(false);
   const [industryOpen, setIndustryOpen] = useState(false);
+  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const handleVideoEnd = useCallback(() => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentVideoIndex((prev) => (prev + 1) % heroVideos.length);
+      setIsTransitioning(false);
+    }, 500);
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.addEventListener('ended', handleVideoEnd);
+      return () => video.removeEventListener('ended', handleVideoEnd);
+    }
+  }, [handleVideoEnd]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.load();
+      video.play().catch(() => {});
+    }
+  }, [currentVideoIndex]);
 
   const handleNavigate = () => {
     const params = new URLSearchParams();
@@ -198,21 +232,45 @@ export default function InfiniteHero({
       ref={rootRef}
       className="relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
-      {/* Video Background */}
+      {/* Video Background with Rotation */}
       <div className="absolute inset-0 z-0">
         <video
+          ref={videoRef}
+          key={currentVideoIndex}
           autoPlay
-          loop
           muted
           playsInline
-          className="absolute inset-0 w-full h-full object-cover"
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+            isTransitioning ? 'opacity-0' : 'opacity-100'
+          }`}
         >
-          <source src={heroVideo} type="video/mp4" />
+          <source src={heroVideos[currentVideoIndex]} type="video/mp4" />
         </video>
         {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-background/60 backdrop-blur-[1px]" />
         {/* Gradient fade to content */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-background/40" />
+        {/* Video indicator dots */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+          {heroVideos.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setIsTransitioning(true);
+                setTimeout(() => {
+                  setCurrentVideoIndex(index);
+                  setIsTransitioning(false);
+                }, 300);
+              }}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                index === currentVideoIndex 
+                  ? 'bg-foreground w-6' 
+                  : 'bg-foreground/30 hover:bg-foreground/50'
+              }`}
+              aria-label={`Video ${index + 1}`}
+            />
+          ))}
+        </div>
       </div>
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
