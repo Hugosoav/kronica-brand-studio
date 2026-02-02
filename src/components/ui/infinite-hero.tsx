@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronDown, X } from "lucide-react";
+import heroVideo from "@/assets/hero-video.mp4";
 
 const serviceOptions = [
   { label: "Tudo", value: "" },
@@ -197,6 +198,22 @@ export default function InfiniteHero({
       ref={rootRef}
       className="relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
+      {/* Video Background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src={heroVideo} type="video/mp4" />
+        </video>
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-background/70 backdrop-blur-[2px]" />
+        {/* Gradient fade to content */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/30" />
+      </div>
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
         <div className="flex flex-col items-center gap-4 sm:gap-6">
