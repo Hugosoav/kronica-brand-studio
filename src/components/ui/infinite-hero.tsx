@@ -5,14 +5,13 @@ import { gsap } from "gsap";
 import { useRef, useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronDown, X } from "lucide-react";
+import { projects } from "@/data/projects";
 
-// Import all hero videos
-import heroModern from "@/assets/videos/hero-modern.mp4";
-import heroArt from "@/assets/videos/hero-art.mp4";
-import heroTime from "@/assets/videos/hero-time.mp4";
-import heroTypography from "@/assets/videos/hero-typography.mp4";
-
-const heroVideos = [heroModern, heroArt, heroTime, heroTypography];
+// Collect all project images for the hero slideshow
+const heroImages = projects.flatMap(project => [
+  project.images.cover,
+  ...project.images.gallery.slice(0, 2) // Take cover + 2 gallery images per project
+]).slice(0, 12); // Limit to 12 images total
 
 const serviceOptions = [
   { label: "Tudo", value: "" },
@@ -136,33 +135,34 @@ export default function InfiniteHero({
   const [selectedIndustry, setSelectedIndustry] = useState("");
   const [serviceOpen, setServiceOpen] = useState(false);
   const [industryOpen, setIndustryOpen] = useState(false);
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [nextImageIndex, setNextImageIndex] = useState(1);
 
-  const handleVideoEnd = useCallback(() => {
+  // Auto-rotate images every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsTransitioning(true);
+      setNextImageIndex((currentImageIndex + 1) % heroImages.length);
+      
+      setTimeout(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+        setIsTransitioning(false);
+      }, 800);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [currentImageIndex]);
+
+  const handleImageClick = useCallback((index: number) => {
+    if (index === currentImageIndex) return;
     setIsTransitioning(true);
+    setNextImageIndex(index);
     setTimeout(() => {
-      setCurrentVideoIndex((prev) => (prev + 1) % heroVideos.length);
+      setCurrentImageIndex(index);
       setIsTransitioning(false);
-    }, 500);
-  }, []);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      video.addEventListener('ended', handleVideoEnd);
-      return () => video.removeEventListener('ended', handleVideoEnd);
-    }
-  }, [handleVideoEnd]);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      video.load();
-      video.play().catch(() => {});
-    }
-  }, [currentVideoIndex]);
+    }, 800);
+  }, [currentImageIndex]);
 
   const handleNavigate = () => {
     const params = new URLSearchParams();
@@ -232,42 +232,56 @@ export default function InfiniteHero({
       ref={rootRef}
       className="relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
-      {/* Video Background with Rotation */}
+      {/* Image Background with Rotation */}
       <div className="absolute inset-0 z-0">
-        <video
-          ref={videoRef}
-          key={currentVideoIndex}
-          autoPlay
-          muted
-          playsInline
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-            isTransitioning ? 'opacity-0' : 'opacity-100'
+        {/* Current image */}
+        <div
+          className={`absolute inset-0 transition-all duration-800 ease-out ${
+            isTransitioning ? 'opacity-0 scale-105' : 'opacity-100 scale-100'
           }`}
-        >
-          <source src={heroVideos[currentVideoIndex]} type="video/mp4" />
-        </video>
+          style={{
+            backgroundImage: `url(${heroImages[currentImageIndex]})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        {/* Next image (preloaded underneath) */}
+        <div
+          className={`absolute inset-0 transition-all duration-800 ease-out ${
+            isTransitioning ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          }`}
+          style={{
+            backgroundImage: `url(${heroImages[nextImageIndex]})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        />
+        {/* Ken Burns subtle animation */}
+        <div
+          className="absolute inset-0 animate-[kenburns_20s_ease-in-out_infinite]"
+          style={{
+            backgroundImage: `url(${heroImages[currentImageIndex]})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: isTransitioning ? 0 : 0.3,
+          }}
+        />
         {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-background/60 backdrop-blur-[1px]" />
+        <div className="absolute inset-0 bg-background/70" />
         {/* Gradient fade to content */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-background/40" />
-        {/* Video indicator dots */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-2 z-20">
-          {heroVideos.map((_, index) => (
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-background/50" />
+        {/* Image indicator dots */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-1.5 z-20">
+          {heroImages.slice(0, 6).map((_, index) => (
             <button
               key={index}
-              onClick={() => {
-                setIsTransitioning(true);
-                setTimeout(() => {
-                  setCurrentVideoIndex(index);
-                  setIsTransitioning(false);
-                }, 300);
-              }}
-              className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                index === currentVideoIndex 
-                  ? 'bg-foreground w-6' 
-                  : 'bg-foreground/30 hover:bg-foreground/50'
+              onClick={() => handleImageClick(index)}
+              className={`h-1.5 rounded-full transition-all duration-500 ${
+                index === currentImageIndex 
+                  ? 'bg-foreground w-8' 
+                  : 'bg-foreground/30 hover:bg-foreground/50 w-1.5'
               }`}
-              aria-label={`Video ${index + 1}`}
+              aria-label={`Imagem ${index + 1}`}
             />
           ))}
         </div>
