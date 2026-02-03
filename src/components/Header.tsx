@@ -19,14 +19,14 @@ const Header = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border/20">
-      <div className="container mx-auto px-4 py-3">
+      <div className="container mx-auto px-3 sm:px-4 py-2.5 sm:py-3">
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img 
               src={logoBranco} 
               alt="Kronica" 
-              className="h-5 md:h-6" 
+              className="h-4 sm:h-5 md:h-6" 
             />
           </Link>
 

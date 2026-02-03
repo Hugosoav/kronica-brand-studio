@@ -58,10 +58,10 @@ function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: Dropd
     <div className="relative">
       <button
         onClick={onToggle}
-        className="inline-flex items-center gap-1 font-medium text-foreground hover:opacity-70 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+        className="inline-flex items-center gap-0.5 sm:gap-1 text-xs sm:text-sm font-medium text-foreground hover:opacity-70 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
       >
         {selectedLabel}
-        <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`h-3 w-3 sm:h-4 sm:w-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
       
       {isOpen && (
@@ -72,21 +72,21 @@ function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: Dropd
             style={{ animation: 'fadeIn 0.2s ease-out' }}
           />
           <div 
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[90vw] max-w-2xl bg-background border border-border rounded-2xl shadow-2xl p-6"
+            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[92vw] max-w-2xl max-h-[80vh] overflow-y-auto bg-background border border-border rounded-xl sm:rounded-2xl shadow-2xl p-4 sm:p-6"
             style={{ 
               animation: 'popupIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
             }}
           >
-            <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-medium text-foreground">Selecione uma opção</h3>
+            <div className="flex items-center justify-between mb-4 sm:mb-6">
+              <h3 className="text-sm sm:text-lg font-medium text-foreground">Selecione uma opção</h3>
               <button 
                 onClick={onClose}
-                className="p-2 hover:bg-muted rounded-full transition-all duration-200 hover:scale-110 hover:rotate-90 active:scale-95"
+                className="p-1.5 sm:p-2 hover:bg-muted rounded-full transition-all duration-200 hover:scale-110 hover:rotate-90 active:scale-95"
               >
-                <X className="h-5 w-5" />
+                <X className="h-4 w-4 sm:h-5 sm:w-5" />
               </button>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
               {options.map((option, index) => (
                 <button
                   key={option.value}
@@ -94,13 +94,13 @@ function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: Dropd
                     onChange(option.value);
                     onClose();
                   }}
-                  className={`text-left px-4 py-3 text-sm rounded-lg border transition-all duration-200 hover:scale-[1.03] hover:shadow-md active:scale-[0.97] ${
+                  className={`text-left px-3 py-2.5 sm:px-4 sm:py-3 text-xs sm:text-sm rounded-lg border transition-all duration-200 hover:scale-[1.02] hover:shadow-md active:scale-[0.97] ${
                     value === option.value 
                       ? 'bg-foreground text-background border-foreground font-medium shadow-lg' 
                       : 'border-border hover:border-foreground/50 hover:bg-muted'
                   }`}
                   style={{ 
-                    animation: `slideUp 0.3s ease-out ${index * 0.03}s both`,
+                    animation: `slideUp 0.25s ease-out ${index * 0.02}s both`,
                   }}
                 >
                   {option.label}
@@ -198,18 +198,18 @@ export default function InfiniteHero({
       className="relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
 
-      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
-        <div className="flex flex-col items-center gap-4 sm:gap-6">
+      <div className="relative z-10 mx-auto max-w-4xl px-3 sm:px-6 text-center">
+        <div className="flex flex-col items-center gap-3 sm:gap-5">
           <h1
             ref={h1Ref}
-            className="text-3xl font-light tracking-tight sm:text-4xl md:text-5xl lg:text-7xl py-2"
+            className="text-2xl font-light tracking-tight sm:text-3xl md:text-4xl lg:text-6xl py-1"
             style={{
               background: "linear-gradient(90deg, hsl(var(--foreground)) 0%, hsl(var(--foreground)) 40%, hsl(var(--muted-foreground)) 50%, hsl(var(--foreground)) 60%, hsl(var(--foreground)) 100%)",
               backgroundSize: "200% auto",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              lineHeight: 1.2,
+              lineHeight: 1.15,
             }}
           >
             {title}
@@ -217,18 +217,18 @@ export default function InfiniteHero({
 
           <p
             ref={pRef}
-            className="max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl px-2"
+            className="max-w-md sm:max-w-2xl text-sm text-muted-foreground sm:text-base md:text-lg px-1"
           >
             {subtitle}
           </p>
 
-          <div ref={ctaRef} className="mt-2 sm:mt-4 flex flex-col items-center gap-6 w-full max-w-3xl">
+          <div ref={ctaRef} className="mt-1 sm:mt-3 flex flex-col items-center gap-4 w-full max-w-3xl">
             {/* Search Bar with Dropdowns */}
             <div 
               onClick={handleNavigate}
-              className="inline-flex items-center gap-2 sm:gap-3 px-4 sm:px-6 py-3 sm:py-4 bg-muted/80 backdrop-blur-sm rounded-full cursor-pointer hover:bg-muted transition-colors flex-wrap justify-center"
+              className="inline-flex items-center gap-1.5 sm:gap-3 px-3 sm:px-5 py-2.5 sm:py-3.5 bg-muted/80 backdrop-blur-sm rounded-full cursor-pointer hover:bg-muted transition-colors flex-wrap justify-center"
             >
-              <span className="text-muted-foreground text-sm sm:text-base">Criamos</span>
+              <span className="text-muted-foreground text-xs sm:text-sm">Criamos</span>
               <div onClick={(e) => e.stopPropagation()}>
                 <Dropdown
                   options={serviceOptions}
@@ -242,7 +242,7 @@ export default function InfiniteHero({
                   onClose={() => setServiceOpen(false)}
                 />
               </div>
-              <span className="text-muted-foreground text-sm sm:text-base">para</span>
+              <span className="text-muted-foreground text-xs sm:text-sm">para</span>
               <div onClick={(e) => e.stopPropagation()}>
                 <Dropdown
                   options={industryOptions}
