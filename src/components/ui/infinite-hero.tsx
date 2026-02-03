@@ -195,11 +195,11 @@ export default function InfiniteHero({
   return (
     <div
       ref={rootRef}
-      className="relative flex h-screen w-full items-center justify-center overflow-hidden"
+      className="relative flex min-h-[60vh] sm:min-h-[70vh] md:h-screen w-full items-center justify-center overflow-hidden py-16 sm:py-20 md:py-0"
     >
 
       <div className="relative z-10 mx-auto max-w-4xl px-3 sm:px-6 text-center">
-        <div className="flex flex-col items-center gap-3 sm:gap-5">
+        <div className="flex flex-col items-center gap-2 sm:gap-4">
           <h1
             ref={h1Ref}
             className="text-2xl font-light tracking-tight sm:text-3xl md:text-4xl lg:text-6xl py-1"
