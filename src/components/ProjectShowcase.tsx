@@ -44,24 +44,24 @@ const ProjectShowcase = () => {
                 alt={featuredProject.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
               
               {/* Content overlay */}
               <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
                 <div className="flex items-end justify-between">
                   <div>
-                    <span className="text-xs uppercase tracking-[0.2em] text-foreground/70 mb-2 block">
+                    <span className="text-xs uppercase tracking-[0.2em] text-white/70 mb-2 block">
                       {featuredProject.category}
                     </span>
-                    <h3 className="text-2xl md:text-4xl font-light text-foreground mb-2">
+                    <h3 className="text-2xl md:text-4xl font-light text-white mb-2">
                       {featuredProject.title}
                     </h3>
-                    <p className="text-sm md:text-base text-foreground/70 max-w-xl hidden md:block">
+                    <p className="text-sm md:text-base text-white/70 max-w-xl hidden md:block">
                       {featuredProject.description}
                     </p>
                   </div>
-                  <div className="p-3 rounded-full border border-foreground/30 group-hover:bg-foreground group-hover:border-foreground transition-all duration-300">
-                    <ArrowUpRight className="h-5 w-5 text-foreground group-hover:text-background transition-colors" />
+                  <div className="p-3 rounded-full border border-white/30 group-hover:bg-white group-hover:border-white transition-all duration-300">
+                    <ArrowUpRight className="h-5 w-5 text-white group-hover:text-black transition-colors" />
                   </div>
                 </div>
               </div>
@@ -89,22 +89,22 @@ const ProjectShowcase = () => {
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-70 group-hover:opacity-50 transition-opacity duration-500" />
                   
                   {/* Hover reveal effect */}
                   <div className="absolute inset-0 flex items-end p-5">
                     <div className="w-full">
                       <div className="flex items-center justify-between">
                         <div>
-                          <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/60 mb-1 block">
+                          <span className="text-[10px] uppercase tracking-[0.2em] text-white/60 mb-1 block">
                             {project.category}
                           </span>
-                          <h3 className="text-lg md:text-xl font-light text-foreground">
+                          <h3 className="text-lg md:text-xl font-light text-white">
                             {project.title}
                           </h3>
                         </div>
-                        <div className="p-2 rounded-full border border-foreground/20 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0 translate-x-2">
-                          <ArrowUpRight className="h-4 w-4 text-foreground" />
+                        <div className="p-2 rounded-full border border-white/20 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-0 translate-x-2">
+                          <ArrowUpRight className="h-4 w-4 text-white" />
                         </div>
                       </div>
                       
@@ -113,7 +113,7 @@ const ProjectShowcase = () => {
                         {project.tags.slice(0, 2).map((tag) => (
                           <span 
                             key={tag}
-                            className="text-[10px] uppercase tracking-wider px-2 py-1 bg-foreground/10 backdrop-blur-sm rounded-full text-foreground/80"
+                            className="text-[10px] uppercase tracking-wider px-2 py-1 bg-white/10 backdrop-blur-sm rounded-full text-white/80"
                           >
                             {tag}
                           </span>
