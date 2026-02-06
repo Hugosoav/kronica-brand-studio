@@ -76,7 +76,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/servicos" className="text-sm hover:text-foreground transition-colors">
-                  UX/UI Design
+                  Websites
                 </Link>
               </li>
             </ul>

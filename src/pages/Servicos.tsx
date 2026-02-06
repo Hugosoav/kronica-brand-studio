@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Compass, Palette, RefreshCw, Instagram, Layers, Clock, FileText } from "lucide-react";
+import { ArrowRight, Compass, Palette, RefreshCw, Instagram, Layers, Clock, FileText, Printer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 
@@ -47,13 +47,23 @@ const Servicos = () => {
     },
     {
       icon: Layers,
-      title: "UX/UI & Interfaces",
-      subtitle: "Design de Produto",
-      forWho: "Para produtos digitais que precisam de interfaces funcionais e visualmente coerentes.",
-      includes: "Wireframes, UI kit base, protótipo de páginas chave e handoff para desenvolvimento.",
-      deliverables: "Protótipo navegável + assets essenciais",
-      timeline: "2 a 6 semanas",
-      cta: "Quero desenhar meu produto",
+      title: "Websites",
+      subtitle: "Design & Desenvolvimento",
+      forWho: "Para marcas que precisam de um site profissional sem contratar dois prestadores diferentes.",
+      includes: "Layout personalizado, design responsivo, programação front-end e back-end, domínio, hospedagem e ativação do site.",
+      deliverables: "Site funcional + painel de gestão + orientação de uso",
+      timeline: "3 a 8 semanas",
+      cta: "Quero meu site completo",
+    },
+    {
+      icon: Printer,
+      title: "Produção para Impressos",
+      subtitle: "Material Gráfico",
+      forWho: "Para marcas que precisam de materiais impressos com qualidade visual e coerência com a identidade.",
+      includes: "Criação e diagramação de banners, folhetos, revistas, cartões de visita, catálogos e demais peças gráficas.",
+      deliverables: "Arquivos finais para impressão (PDF, CMYK) + mockups de apresentação",
+      timeline: "1 a 3 semanas",
+      cta: "Quero materiais impressos",
     },
   ];
 
