@@ -176,11 +176,11 @@ const Contato = () => {
                       <SelectValue placeholder="Selecione um serviço" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="branding">Branding Estratégico</SelectItem>
                       <SelectItem value="identidade">Identidade Visual</SelectItem>
+                      <SelectItem value="branding">Branding</SelectItem>
                       <SelectItem value="rebranding">Rebranding</SelectItem>
-                      <SelectItem value="instagram">Gestão Visual Instagram</SelectItem>
-                      <SelectItem value="uxui">UX/UI Design</SelectItem>
+                      <SelectItem value="social-media">Social Media</SelectItem>
+                      <SelectItem value="impressos">Produção para Impressos</SelectItem>
                       <SelectItem value="outro">Outro / Não sei ainda</SelectItem>
                     </SelectContent>
                   </Select>
