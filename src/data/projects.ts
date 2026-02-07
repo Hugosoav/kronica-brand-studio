@@ -37,7 +37,7 @@ export const projects: Project[] = [
     client: "Pólis Engenharia",
     services: ["Identidade Visual", "Design de Logo", "Aplicações"],
     images: {
-      cover: polis04,
+      cover: polis07,
       gallery: [polis01, polis02, polis03, polis04, polis05, polis06, polis07, polis08]
     },
     tags: ["Construção", "Engenharia", "Identidade Visual"]
