@@ -14,7 +14,9 @@ export default {
         xl: "6rem",
         "2xl": "8rem",
       },
-      screens: {},
+      screens: {
+        "2xl": "1400px",
+      },
     },
     extend: {
       fontFamily: {
