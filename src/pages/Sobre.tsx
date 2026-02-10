@@ -1,38 +1,91 @@
 import Layout from "@/components/Layout";
+
 const Sobre = () => {
-  return <Layout>
+  return (
+    <Layout>
       {/* SEO */}
       <title>Sobre a Kronica</title>
-      <meta name="description" content="A Kronica é um estúdio de design que desenvolve soluções visuais do físico ao digital, com clareza estratégica e alto nível de refinamento." />
+      <meta
+        name="description"
+        content="A Kronica é um estúdio de design que desenvolve soluções visuais do físico ao digital, com clareza estratégica e alto nível de refinamento."
+      />
 
       {/* About Section */}
       <section className="py-20 md:py-32 lg:py-40">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto">
-            <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-8 block">
-              Sobre o estúdio
-            </span>
-            
-            
-            
-            <div className="space-y-6 text-base md:text-lg text-muted-foreground leading-relaxed animate-fade-in-up delay-100">
-              <p>A Kronica é um estúdio de design que desenvolve soluções visuais do físico ao digital. Nosso design não foca somente na estética, mas na capacidade de comunicar com clareza, construindo percepção e traduzindo ideias em sistemas visuais bem estruturados.</p>
-              
-              <p>
-                Nosso trabalho abrange projetos de identidade visual, branding e posicionamento, direção criativa, impressos, apresentações institucionais, sistemas para redes sociais e experiências digitais. Atuamos tanto na construção completa de marcas quanto no desenvolvimento de materiais e desdobramentos que fortalecem a comunicação e elevam o padrão visual de um negócio.
-              </p>
-              
-              <p>
-                Operando como um modelo independente e próximo. Cada projeto desenvolvido é conduzido de forma direta pela equipe responsável, garantindo envolvimento real do diagnóstico e conceito à criação e aplicação final. Nosso método permite decisões mais consistentes, processos mais bem direcionados e entregas com alto nível de refinamento.
-              </p>
-              
-              <p>
-                Com uma abordagem estética contemporânea e olhar estratégico, criamos design com intenção, dando forma, significado e presença para marcas e projetos que precisam ser levados a sério.
-              </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8">
+            {/* Left - Title + Text */}
+            <div>
+              <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6 block">
+                Sobre o estúdio
+              </span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-10">
+                Filosofia de<br />Design
+              </h1>
+
+              <div className="space-y-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
+                <p>
+                  A Kronica é um estúdio de design que desenvolve soluções visuais do físico ao digital. Nosso design não foca somente na estética, mas na capacidade de comunicar com clareza, construindo percepção e traduzindo ideias em sistemas visuais bem estruturados.
+                </p>
+                <p>
+                  Operando como um modelo independente e próximo, cada projeto é conduzido de forma direta pela equipe responsável, garantindo envolvimento real do diagnóstico e conceito à criação e aplicação final.
+                </p>
+              </div>
+            </div>
+
+            {/* Right - Approach + Stats */}
+            <div className="flex flex-col justify-between">
+              <div>
+                <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6 block">
+                  Abordagem
+                </span>
+
+                <div className="space-y-0">
+                  <div className="border-l-2 border-foreground pl-5 py-4">
+                    <h3 className="text-base font-semibold mb-1">Estratégia</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Diagnóstico aprofundado de contexto, mercado e posicionamento
+                    </p>
+                  </div>
+                  <div className="border-l-2 border-foreground pl-5 py-4">
+                    <h3 className="text-base font-semibold mb-1">Colaboração</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Parceria próxima com clientes em todas as etapas do processo
+                    </p>
+                  </div>
+                  <div className="border-l-2 border-foreground pl-5 py-4">
+                    <h3 className="text-base font-semibold mb-1">Refinamento</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Soluções visuais contemporâneas com alto nível de acabamento
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-12 md:mt-0">
+                <div className="border-t border-border pt-6">
+                  <div className="grid grid-cols-2 gap-8">
+                    <div>
+                      <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-2 block">
+                        Fundação
+                      </span>
+                      <span className="text-3xl md:text-4xl font-light">2024</span>
+                    </div>
+                    <div>
+                      <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-2 block">
+                        Projetos
+                      </span>
+                      <span className="text-3xl md:text-4xl font-light">10+</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-    </Layout>;
+    </Layout>
+  );
 };
+
 export default Sobre;
