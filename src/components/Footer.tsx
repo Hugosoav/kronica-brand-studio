@@ -63,16 +63,6 @@ const Footer = () => {
                     Instagram
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="https://behance.net/kronicastudio"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-base md:text-lg hover:opacity-70 transition-opacity"
-                  >
-                    Behance
-                  </a>
-                </li>
               </ul>
             </div>
 
@@ -84,6 +74,13 @@ const Footer = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="mt-16 pt-6 border-t border-background/10">
+          <p className="text-xs text-background/40">
+            © {new Date().getFullYear()} Kronica Studio. Todos os direitos reservados.
+          </p>
         </div>
       </div>
     </footer>

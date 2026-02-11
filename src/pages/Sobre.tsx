@@ -69,7 +69,7 @@ const Sobre = () => {
                       <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-2 block">
                         Fundação
                       </span>
-                      <span className="text-3xl md:text-4xl font-light">2024</span>
+                      <span className="text-3xl md:text-4xl font-light">2026</span>
                     </div>
                     <div>
                       <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-2 block">
