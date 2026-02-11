@@ -1,8 +1,8 @@
 import { MeshGradient } from "@paper-design/shaders-react";
 import { useTheme } from "@/hooks/use-theme";
 
-const DARK_COLORS = ["#000000", "#111111", "#222222", "#333333"];
-const LIGHT_COLORS = ["#ffffff", "#f0f0f0", "#e0e0e0", "#d5d5d5"];
+const DARK_COLORS = ["#000000", "#0a0a0a", "#1a1a1a", "#2a2a2a"];
+const LIGHT_COLORS = ["#ffffff", "#eeeeee", "#dddddd", "#cccccc"];
 
 export default function ShaderHeroBackground() {
   const { theme } = useTheme();
@@ -11,10 +11,11 @@ export default function ShaderHeroBackground() {
   return (
     <div className="absolute inset-0 overflow-hidden">
       <MeshGradient
+        key={theme}
         colors={isDark ? DARK_COLORS : LIGHT_COLORS}
-        distortion={0.8}
-        speed={0.25}
-        swirl={0.8}
+        distortion={1.2}
+        speed={0.4}
+        swirl={1.0}
         style={{
           position: "absolute",
           inset: 0,

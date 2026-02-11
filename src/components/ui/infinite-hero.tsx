@@ -208,16 +208,17 @@ export default function InfiniteHero({
         <div className="flex flex-col items-center gap-4 sm:gap-6">
           <h1
             ref={h1Ref}
-            className="text-3xl font-light tracking-tight sm:text-4xl md:text-5xl lg:text-7xl py-2"
+            className="text-4xl font-light tracking-tight sm:text-5xl md:text-6xl lg:text-8xl py-2"
             style={{
-              background: isDark
-                ? "linear-gradient(90deg, #ffffff 0%, #ffffff 40%, #999999 50%, #ffffff 60%, #ffffff 100%)"
-                : "linear-gradient(90deg, #111111 0%, #111111 40%, #666666 50%, #111111 60%, #111111 100%)",
+              backgroundImage: isDark
+                ? "linear-gradient(90deg, #ffffff 0%, #ffffff 35%, #888888 50%, #ffffff 65%, #ffffff 100%)"
+                : "linear-gradient(90deg, #111111 0%, #111111 35%, #999999 50%, #111111 65%, #111111 100%)",
               backgroundSize: "200% auto",
+              backgroundPosition: "0% center",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              lineHeight: 1.2,
+              lineHeight: 1.15,
             }}
           >
             {title}
