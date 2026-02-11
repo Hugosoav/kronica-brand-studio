@@ -270,15 +270,6 @@ export default function InfiniteHero({
 
               </div>
             </div>
-
-            {/* Link para Contato */}
-            <button
-              onClick={() => navigate("/contato")}
-              className={`text-sm sm:text-base transition-all duration-200 hover:opacity-70 underline underline-offset-4 decoration-1 ${
-                isDark ? "text-white/60 decoration-white/30" : "text-black/50 decoration-black/20"
-              }`}>
-              Ou fale conosco diretamente
-            </button>
           </div>
         </div>
       </div>
