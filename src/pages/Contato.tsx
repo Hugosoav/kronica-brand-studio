@@ -62,15 +62,38 @@ const Contato = () => {
                   <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6 block">
                     Siga-nos
                   </span>
-                  <a
-                    href="https://instagram.com/kronicastudio"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2 text-lg md:text-xl text-foreground hover:opacity-70 transition-opacity">
-
-                    Instagram
-                    <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </a>
+                  <ul className="space-y-3">
+                    <li>
+                      <a
+                        href="https://instagram.com/kronicastudio"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-2 text-lg md:text-xl text-foreground hover:opacity-70 transition-opacity">
+                        Instagram
+                        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://www.linkedin.com/in/kronica-studio-4553ab3a4/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-2 text-lg md:text-xl text-foreground hover:opacity-70 transition-opacity">
+                        LinkedIn
+                        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="https://x.com/kronicastudio"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group inline-flex items-center gap-2 text-lg md:text-xl text-foreground hover:opacity-70 transition-opacity">
+                        X
+                        <ArrowUpRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </a>
+                    </li>
+                  </ul>
                 </div>
 
                 <div className="mt-16 md:mt-0">
