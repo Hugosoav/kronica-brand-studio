@@ -5,7 +5,7 @@ import { gsap } from "gsap";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronDown, X } from "lucide-react";
-import VideoHeroBackground from "./video-hero-background";
+import ShaderHeroBackground from "./shader-hero-background";
 
 const serviceOptions = [
   { label: "Tudo", value: "" },
@@ -199,7 +199,7 @@ export default function InfiniteHero({
       className="relative flex h-screen w-full items-center justify-center overflow-hidden"
     >
       {/* Video background */}
-      <VideoHeroBackground />
+      <ShaderHeroBackground />
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
         <div className="flex flex-col items-center gap-4 sm:gap-6">
