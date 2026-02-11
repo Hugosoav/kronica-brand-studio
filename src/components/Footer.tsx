@@ -63,6 +63,26 @@ const Footer = () => {
                     Instagram
                   </a>
                 </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/in/kronica-studio-4553ab3a4/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base md:text-lg hover:opacity-70 transition-opacity"
+                  >
+                    LinkedIn
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://x.com/kronicastudio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-base md:text-lg hover:opacity-70 transition-opacity"
+                  >
+                    X
+                  </a>
+                </li>
               </ul>
             </div>
 
