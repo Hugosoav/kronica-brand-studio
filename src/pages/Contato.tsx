@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 const Contato = () => {
   return (
     <div className="min-h-screen flex flex-col relative">
-      <div className="fixed inset-0 -z-10 bg-black" />
+      <div className="fixed inset-0 -z-10 bg-background" />
       <Header />
       <main className="flex-1 pt-16 flex flex-col">
         {/* SEO */}
