@@ -24,11 +24,8 @@ const Contato = () => {
                 <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6 block">
                   Entre em contato
                 </span>
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.1] mb-16 text-foreground">Vamos
-criar algo extraordinário
-
-
-                  <br />extraordinário
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.1] mb-16 text-foreground">
+                  Vamos<br />criar algo<br />extraordinário
                 </h1>
 
                 <div className="space-y-10">
