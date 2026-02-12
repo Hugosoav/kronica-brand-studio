@@ -7,8 +7,8 @@ const Sobre = () => {
       <title>Sobre a Kronica</title>
       <meta
         name="description"
-        content="A Kronica é um estúdio de design que desenvolve soluções visuais do físico ao digital, com clareza estratégica e alto nível de refinamento."
-      />
+        content="A Kronica é um estúdio de design que desenvolve soluções visuais do físico ao digital, com clareza estratégica e alto nível de refinamento." />
+
 
       {/* About Section */}
       <section className="py-20 md:py-32 lg:py-40">
@@ -19,8 +19,8 @@ const Sobre = () => {
               <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6 block">
                 Sobre o estúdio
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-10">
-                Filosofia de<br />Design
+              <h1 className="text-4xl lg:text-6xl font-light leading-tight mb-10 md:text-4xl">Filosofia de Design
+                <br />Design
               </h1>
 
               <div className="space-y-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
@@ -84,8 +84,8 @@ const Sobre = () => {
           </div>
         </div>
       </section>
-    </Layout>
-  );
+    </Layout>);
+
 };
 
 export default Sobre;
