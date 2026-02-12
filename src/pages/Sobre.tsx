@@ -1,6 +1,10 @@
+import { useState } from "react";
 import Layout from "@/components/Layout";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 const Sobre = () => {
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <Layout>
       {/* SEO */}
@@ -21,16 +25,34 @@ const Sobre = () => {
               </span>
               <h1 className="text-4xl lg:text-6xl font-light leading-tight mb-10 md:text-4xl">Filosofia de Design</h1>
 
-              <div className="space-y-5 text-sm md:text-base text-muted-foreground leading-relaxed max-w-xl">
-                <p>
-                  A Kronica é um estúdio de Branding e Design Estratégico que desenvolve soluções visuais do físico ao digital. Acreditamos que toda marca precisa de enredo, uma base que organize origem, propósito, personalidade e direção antes de qualquer escolha estética. Nosso design não foca apenas na forma, mas na capacidade de comunicar com clareza, construindo percepção e transformando ideias em sistemas visuais bem estruturados.
-                </p>
-                <p>
-                  Nosso trabalho abrange identidade visual, branding e posicionamento, direção criativa, impressos, apresentações institucionais, sistemas para redes sociais e experiências digitais. Atuamos tanto na construção completa de marcas quanto no desenvolvimento de desdobramentos que fortalecem a comunicação e elevam o padrão visual de um negócio. Cada projeto é pensado como uma estrutura contínua, onde estratégia, narrativa e identidade caminham juntas para gerar consistência e presença.
-                </p>
-                <p>
-                  Operando de forma independente e próxima, cada projeto é conduzido diretamente pela equipe responsável, garantindo envolvimento do diagnóstico ao conceito, da criação à aplicação final. Nosso método permite decisões mais precisas, processos bem direcionados e entregas com alto nível de refinamento. Com uma abordagem contemporânea e olhar estratégico, damos forma e significado a marcas que precisam ser levadas a sério.
-                </p>
+              <div className="relative">
+                <div
+                  className={`space-y-5 text-sm md:text-base text-muted-foreground leading-relaxed max-w-xl overflow-hidden transition-all duration-500 ease-in-out ${
+                    expanded ? "max-h-[2000px]" : "max-h-[180px]"
+                  }`}
+                >
+                  <p>
+                    A Kronica é um estúdio de Branding e Design Estratégico que desenvolve soluções visuais do físico ao digital. Acreditamos que toda marca precisa de enredo, uma base que organize origem, propósito, personalidade e direção antes de qualquer escolha estética. Nosso design não foca apenas na forma, mas na capacidade de comunicar com clareza, construindo percepção e transformando ideias em sistemas visuais bem estruturados.
+                  </p>
+                  <p>
+                    Nosso trabalho abrange identidade visual, branding e posicionamento, direção criativa, impressos, apresentações institucionais, sistemas para redes sociais e experiências digitais. Atuamos tanto na construção completa de marcas quanto no desenvolvimento de desdobramentos que fortalecem a comunicação e elevam o padrão visual de um negócio. Cada projeto é pensado como uma estrutura contínua, onde estratégia, narrativa e identidade caminham juntas para gerar consistência e presença.
+                  </p>
+                  <p>
+                    Operando de forma independente e próxima, cada projeto é conduzido diretamente pela equipe responsável, garantindo envolvimento do diagnóstico ao conceito, da criação à aplicação final. Nosso método permite decisões mais precisas, processos bem direcionados e entregas com alto nível de refinamento. Com uma abordagem contemporânea e olhar estratégico, damos forma e significado a marcas que precisam ser levadas a sério.
+                  </p>
+                </div>
+
+                {!expanded && (
+                  <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+                )}
+
+                <button
+                  onClick={() => setExpanded(!expanded)}
+                  className="mt-4 flex items-center gap-1.5 text-xs uppercase tracking-[0.2em] text-foreground hover:text-muted-foreground transition-colors duration-300"
+                >
+                  {expanded ? "Ler menos" : "Ler mais"}
+                  {expanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                </button>
               </div>
             </div>
 
