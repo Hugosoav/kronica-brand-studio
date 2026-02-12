@@ -21,7 +21,7 @@ const Sobre = () => {
               </span>
               <h1 className="text-4xl lg:text-6xl font-light leading-tight mb-10 md:text-4xl">Filosofia de Design</h1>
 
-              <div className="space-y-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
+              <div className="space-y-5 text-sm md:text-base text-muted-foreground leading-relaxed max-w-xl">
                 <p>
                   A Kronica é um estúdio de Branding e Design Estratégico que desenvolve soluções visuais do físico ao digital. Acreditamos que toda marca precisa de enredo, uma base que organize origem, propósito, personalidade e direção antes de qualquer escolha estética. Nosso design não foca apenas na forma, mas na capacidade de comunicar com clareza, construindo percepção e transformando ideias em sistemas visuais bem estruturados.
                 </p>
