@@ -19,7 +19,7 @@ const Sobre = () => {
               <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6 block">
                 Sobre o estúdio
               </span>
-              <h1 className="text-4xl lg:text-6xl font-light leading-tight mb-10 md:text-4xl">Filosofia de Design
+              <h1 className="text-4xl lg:text-6xl font-light leading-tight mb-10 md:text-4xl">​
                 <br />Design
               </h1>
 
