@@ -22,8 +22,9 @@ const Sobre = () => {
               <h1 className="text-4xl lg:text-6xl font-light leading-tight mb-10 md:text-4xl">Filosofia de Design</h1>
 
               <div className="space-y-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-                <p>
-                  A Kronica é um estúdio de design que desenvolve soluções visuais do físico ao digital. Nosso design não foca somente na estética, mas na capacidade de comunicar com clareza, construindo percepção e traduzindo ideias em sistemas visuais bem estruturados.
+                <p>A Kronica é um estúdio de Branding e Design Estratégico que desenvolve soluções visuais do físico ao digital. Todos os projetos são pensados como uma estrutura contínua, onde estratégia, narrativa e identidade caminham juntas para gerar consistência e presença.
+
+Operando de forma independente e próxima, garantimos envolvimento do diagnóstico ao conceito, da criação à aplicação final. Nosso método permite decisões mais precisas, processos bem direcionados e entregas com alto nível de refinamento.
                 </p>
                 <p>
                   Operando como um modelo independente e próximo, cada projeto é conduzido de forma direta pela equipe responsável, garantindo envolvimento real do diagnóstico e conceito à criação e aplicação final.
@@ -82,7 +83,6 @@ const Sobre = () => {
           </div>
         </div>
       </section>
-    </Layout>);
-};
+    </Layout>);};
 
 export default Sobre;
