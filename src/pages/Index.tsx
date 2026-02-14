@@ -11,7 +11,7 @@ const Index = () => {
 
       {/* Hero Section */}
       <InfiniteHero 
-        title="Design com narrativa"
+        title="DESIGN COM NARRATIVA"
         subtitle="Kronica Studio"
       />
 
