@@ -2,7 +2,7 @@
 
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ChevronDown, X } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
@@ -118,7 +118,6 @@ export default function InfiniteHero({
   subtitle = "Kronica Studio"
 }: InfiniteHeroProps) {
   const rootRef = useRef<HTMLDivElement>(null);
-  const h1Ref = useRef<HTMLHeadingElement>(null);
   const pRef = useRef<HTMLParagraphElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
@@ -139,9 +138,22 @@ export default function InfiniteHero({
   };
 
 
+  // Breathing animation for title characters
+  const titleContainerRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    if (!titleContainerRef.current) return;
+    const spans = titleContainerRef.current.querySelectorAll("span");
+    const numLetters = spans.length;
+    spans.forEach((span, i) => {
+      const mappedIndex = i - numLetters / 2;
+      span.style.animationDelay = mappedIndex * 0.25 + "s";
+    });
+  }, [title]);
+
   useGSAP(
     () => {
-      gsap.set(h1Ref.current, {
+      gsap.set(titleContainerRef.current, {
         opacity: 0,
         y: 40,
         filter: "blur(12px)",
@@ -158,7 +170,7 @@ export default function InfiniteHero({
 
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
       tl.to(
-        h1Ref.current,
+        titleContainerRef.current,
         {
           opacity: 1,
           y: 0,
@@ -180,15 +192,6 @@ export default function InfiniteHero({
         "-=0.5"
       ).
       to(ctas, { opacity: 1, y: 0, duration: 0.6, stagger: 0.08 }, "-=0.2");
-
-      // Continuous shimmer animation on title
-      gsap.to(h1Ref.current, {
-        backgroundPosition: "200% center",
-        duration: 3,
-        ease: "none",
-        repeat: -1,
-        delay: 1.5
-      });
     },
     { scope: rootRef }
   );
@@ -203,23 +206,38 @@ export default function InfiniteHero({
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
         <div className="flex flex-col items-center gap-4 sm:gap-6">
-          <h1
-            ref={h1Ref}
+          <div
+            ref={titleContainerRef}
             className="font-light tracking-tight sm:text-5xl md:text-6xl lg:text-8xl py-2 text-6xl"
             style={{
-              backgroundImage: isDark ?
-              "linear-gradient(90deg, #ffffff 0%, #ffffff 35%, #888888 50%, #ffffff 65%, #ffffff 100%)" :
-              "linear-gradient(90deg, #111111 0%, #111111 35%, #999999 50%, #111111 65%, #111111 100%)",
-              backgroundSize: "200% auto",
-              backgroundPosition: "0% center",
-              WebkitBackgroundClip: "text",
-              backgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              lineHeight: 1.15
-            }}>
-
-            {title}
-          </h1>
+              fontFamily: "'Inter', sans-serif",
+              lineHeight: 1.15,
+              color: isDark ? "#ffffff" : "#111111"
+            }}
+          >
+            {title.split("").map((char, index) => (
+              <span
+                key={index}
+                style={{
+                  display: "inline-block",
+                  animationName: "breath",
+                  animationDuration: "1.5s",
+                  animationTimingFunction: "ease-in-out",
+                  animationIterationCount: "infinite",
+                  animationDirection: "alternate",
+                  fontVariationSettings: '"wght" 100',
+                }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </span>
+            ))}
+            <style>{`
+              @keyframes breath {
+                0% { font-variation-settings: "wght" 100; }
+                100% { font-variation-settings: "wght" 800; }
+              }
+            `}</style>
+          </div>
 
           <p
             ref={pRef}
