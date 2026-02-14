@@ -22,13 +22,8 @@ const Sobre = () => {
               <h1 className="text-4xl lg:text-6xl font-light leading-tight mb-10 md:text-4xl">Filosofia de Design</h1>
 
               <div className="space-y-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-                <p>A Kronica é um estúdio de Branding e Design Estratégico que desenvolve soluções visuais do físico ao digital. Todos os projetos são pensados como uma estrutura contínua, onde estratégia, narrativa e identidade caminham juntas para gerar consistência e presença.
-
-
-                </p>
-                <p>
-                  Operando como um modelo independente e próximo, cada projeto é conduzido de forma direta pela equipe responsável, garantindo envolvimento real do diagnóstico e conceito à criação e aplicação final.
-                </p>
+                <p>A Kronica é um estúdio de design especializado na criação de marcas e materiais gráficos para o físico e o digital. Nossa missão é traduzir essas crônicas em narrativa visual. Atuando como um estúdio independente, cada projeto que construímos é tratado de forma exclusiva, com participação ativa do cliente integrada ao processo.</p>
+                <p>Nossa premissa surgiu da ideia de que marcas precisam ser lembradas não apenas pela estética, mas pelas histórias que carregam: como surgiram e como devem ser lembradas.</p>
               </div>
             </div>
 
