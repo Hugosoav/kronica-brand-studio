@@ -25,7 +25,34 @@ import polis07 from "@/assets/projects/polis/polis-07.jpg";
 import polis08 from "@/assets/projects/polis/polis-08.jpg";
 import polisCover from "@/assets/projects/polis/polis-cover.jpg";
 
+import carolineCover from "@/assets/projects/caroline-rossi/caroline-rossi-cover.jpg";
+import caroline01 from "@/assets/projects/caroline-rossi/caroline-rossi-01.jpg";
+import caroline02 from "@/assets/projects/caroline-rossi/caroline-rossi-02.jpg";
+import caroline03 from "@/assets/projects/caroline-rossi/caroline-rossi-03.jpg";
+import caroline04 from "@/assets/projects/caroline-rossi/caroline-rossi-04.jpg";
+import caroline05 from "@/assets/projects/caroline-rossi/caroline-rossi-05.jpg";
+import caroline06 from "@/assets/projects/caroline-rossi/caroline-rossi-06.jpg";
+import caroline07 from "@/assets/projects/caroline-rossi/caroline-rossi-07.jpg";
+import caroline08 from "@/assets/projects/caroline-rossi/caroline-rossi-08.jpg";
+import caroline09 from "@/assets/projects/caroline-rossi/caroline-rossi-09.jpg";
+
 export const projects: Project[] = [
+  {
+    id: "caroline-rossi",
+    title: "Caroline Rossi",
+    category: "Identidade Visual",
+    description: "Identidade visual sofisticada e atemporal para escritório de advocacia e assessoria jurídica.",
+    fullDescription: "Desenvolvemos uma identidade visual elegante e marcante para Caroline Rossi, advogada especializada em assessoria jurídica. O projeto resultou em uma marca que transmite confiança, sofisticação e profissionalismo no universo jurídico.",
+    concept: "O conceito central foi criar uma marca que equilibra tradição e contemporaneidade. O monograma CR combina as iniciais de forma orgânica e distintiva, enquanto a paleta em tons de verde petróleo e bege transmite seriedade e elegância. A tipografia serifada reforça a autoridade e o refinamento da marca.",
+    year: "2026",
+    client: "Caroline Rossi",
+    services: ["Identidade Visual", "Design de Logo", "Papelaria", "Aplicações"],
+    images: {
+      cover: carolineCover,
+      gallery: [caroline01, caroline02, caroline03, caroline04, caroline05, caroline06, caroline07, caroline08, caroline09]
+    },
+    tags: ["Advocacia", "Jurídico", "Identidade Visual"]
+  },
   {
     id: "polis-engenharia",
     title: "Pólis Engenharia",
