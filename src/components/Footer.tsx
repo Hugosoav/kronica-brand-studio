@@ -24,8 +24,8 @@ const Footer = () => {
                 </span>
                 <a
                   href="mailto:kronicastudio@gmail.com"
-                  className="text-base md:text-lg hover:opacity-70 transition-opacity"
-                >
+                  className="text-base md:text-lg hover:opacity-70 transition-opacity">
+
                   kronicastudio@gmail.com
                 </a>
               </div>
@@ -38,8 +38,8 @@ const Footer = () => {
                   href="https://wa.me/5528999161275"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-base md:text-lg hover:opacity-70 transition-opacity"
-                >
+                  className="text-base md:text-lg hover:opacity-70 transition-opacity">
+
                   +55 (28) 99916-1275
                 </a>
               </div>
@@ -58,8 +58,8 @@ const Footer = () => {
                     href="https://instagram.com/kronicastudio"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-base md:text-lg hover:opacity-70 transition-opacity"
-                  >
+                    className="text-base md:text-lg hover:opacity-70 transition-opacity">
+
                     Instagram
                   </a>
                 </li>
@@ -68,8 +68,8 @@ const Footer = () => {
                     href="https://www.linkedin.com/in/kronica-studio-4553ab3a4/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-base md:text-lg hover:opacity-70 transition-opacity"
-                  >
+                    className="text-base md:text-lg hover:opacity-70 transition-opacity">
+
                     LinkedIn
                   </a>
                 </li>
@@ -78,8 +78,8 @@ const Footer = () => {
                     href="https://x.com/kronicastudio"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-base md:text-lg hover:opacity-70 transition-opacity"
-                  >
+                    className="text-base md:text-lg hover:opacity-70 transition-opacity">
+
                     X
                   </a>
                 </li>
@@ -88,8 +88,8 @@ const Footer = () => {
 
             <div className="mt-12 md:mt-0">
               <div className="border-t border-background/10 pt-6">
-                <p className="text-sm text-background/50 max-w-md">
-                  Branding e design estratégico para marcas com propósito. Nosso processo começa pela escuta, compreendendo sua visão e traduzindo em soluções visuais que superam expectativas.
+                <p className="text-sm text-background/50 max-w-md">Estúdio de Branding e design estratégico. Nosso processo começa pela escuta, compreendendo sua visão e traduzindo em historias.
+
                 </p>
               </div>
             </div>
@@ -103,8 +103,8 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </footer>
-  );
+    </footer>);
+
 };
 
 export default Footer;
