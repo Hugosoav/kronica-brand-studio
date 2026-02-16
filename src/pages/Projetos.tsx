@@ -61,7 +61,7 @@ const Projetos = () => {
                   <img
                   src={project.images.cover}
                   alt={project.title}
-                  className="w-full aspect-[3/2] object-cover transition-transform duration-700 group-hover:scale-105" />
+                  className="w-full aspect-[3/2] object-contain" />
 
                 </div>
                 <div className="flex items-center justify-between">
