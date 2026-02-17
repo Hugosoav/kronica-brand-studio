@@ -98,8 +98,8 @@ const Contato = () => {
 
                 <div className="mt-16 md:mt-0">
                   <div className="border-t border-border pt-6">
-                    <p className="text-sm text-muted-foreground max-w-md">
-                      Branding e design estratégico para marcas com propósito. Nosso processo começa pela escuta, compreendendo sua visão e traduzindo em soluções visuais que superam expectativas.
+                    <p className="text-sm text-muted-foreground max-w-md">Estúdio de Branding e design estratégico. Nosso processo começa pela escuta, compreendendo sua visão e traduzindo em história.
+
                     </p>
                   </div>
                 </div>
