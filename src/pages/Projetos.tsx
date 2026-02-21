@@ -26,7 +26,7 @@ const Projetos = () => {
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4 animate-fade-in-up">
               Projetos
             </h1>
-            <p className="text-base text-muted-foreground mb-8 animate-fade-in-up delay-100">Histórias que construimos
+            <p className="text-base text-muted-foreground mb-8 animate-fade-in-up delay-100">Histórias que construímos
 
             </p>
 
