@@ -52,9 +52,10 @@ interface DropdownProps {
 
 function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: DropdownProps) {
   const selectedLabel = options.find((o) => o.value === value)?.label || options[0].label;
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className="relative">
+    <div className="relative" ref={dropdownRef}>
       <button
         onClick={onToggle}
         className="inline-flex items-center gap-1 font-medium text-foreground hover:opacity-70 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]">
@@ -66,12 +67,12 @@ function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: Dropd
       {isOpen &&
       <>
           <div
-          className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm animate-fade-in"
+          className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm"
           onClick={onClose}
           style={{ animation: 'fadeIn 0.2s ease-out' }} />
 
           <div
-          className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[90vw] max-w-2xl bg-background border border-border rounded-2xl shadow-2xl p-6"
+          className="absolute left-1/2 -translate-x-1/2 top-full mt-4 z-50 w-[90vw] max-w-2xl bg-background border border-border rounded-2xl shadow-2xl p-6"
           style={{
             animation: 'popupIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards'
           }}>
@@ -203,23 +204,25 @@ export default function InfiniteHero({
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center">
         <div className="flex flex-col items-center gap-4 sm:gap-6">
-          <h1
-            ref={h1Ref}
-            className="tracking-tight sm:text-5xl lg:text-8xl py-2 text-6xl font-thin md:text-5xl text-slate-600"
-            style={{
-              backgroundImage: isDark ?
-              "linear-gradient(90deg, #ffffff 0%, #ffffff 35%, #888888 50%, #ffffff 65%, #ffffff 100%)" :
-              "linear-gradient(90deg, #111111 0%, #111111 35%, #999999 50%, #111111 65%, #111111 100%)",
-              backgroundSize: "200% auto",
-              backgroundPosition: "0% center",
-              WebkitBackgroundClip: "text",
-              backgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              lineHeight: 1.15
-            }}>
+          {title && (
+            <h1
+              ref={h1Ref}
+              className="tracking-tight sm:text-5xl lg:text-8xl py-2 text-6xl font-thin md:text-5xl text-slate-600"
+              style={{
+                backgroundImage: isDark ?
+                "linear-gradient(90deg, #ffffff 0%, #ffffff 35%, #888888 50%, #ffffff 65%, #ffffff 100%)" :
+                "linear-gradient(90deg, #111111 0%, #111111 35%, #999999 50%, #111111 65%, #111111 100%)",
+                backgroundSize: "200% auto",
+                backgroundPosition: "0% center",
+                WebkitBackgroundClip: "text",
+                backgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                lineHeight: 1.15
+              }}>
 
-            {title}
-          </h1>
+              {title}
+            </h1>
+          )}
 
           <p
             ref={pRef}
