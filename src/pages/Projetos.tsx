@@ -1,22 +1,10 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Search } from "lucide-react";
-import { Input } from "@/components/ui/input";
 import Layout from "@/components/Layout";
 import { projects } from "@/data/projects";
 import PageTransition from "@/components/PageTransition";
-import RevealOnScroll from "@/components/RevealOnScroll";
-import AnimatedText from "@/components/AnimatedText";
 import { motion } from "framer-motion";
 
 const Projetos = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredProjects = projects.filter(
-    (project) =>
-      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      project.category.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
   return (
     <PageTransition>
@@ -24,40 +12,11 @@ const Projetos = () => {
         <title>Projetos — Kronica</title>
         <meta name="description" content="Portfólio de projetos de branding e design da Kronica." />
 
-        {/* Hero */}
-        <section className="py-16 md:py-24">
+        {/* Projects – organic masonry layout */}
+        <section className="pt-24 pb-16 md:pb-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <AnimatedText
-                as="h1"
-                className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4"
-                splitBy="words"
-              >
-                Histórias construídas
-              </AnimatedText>
-
-              {/* Search */}
-              <RevealOnScroll delay={0.3}>
-                <div className="relative max-w-md mx-auto mt-8">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={18} />
-                  <Input
-                    type="text"
-                    placeholder="Buscar projeto ou categoria..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-11 bg-secondary/50 border-border/30 focus:border-border"
-                  />
-                </div>
-              </RevealOnScroll>
-            </div>
-          </div>
-        </section>
-
-        {/* Projects Grid */}
-        <section className="pb-16 md:pb-20">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProjects.map((project, index) => (
+            <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
+              {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
                   initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
@@ -68,6 +27,7 @@ const Projetos = () => {
                     delay: index * 0.1,
                     ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
                   }}
+                  className="break-inside-avoid"
                 >
                   <Link
                     to={`/projetos/${project.id}`}
@@ -78,7 +38,7 @@ const Projetos = () => {
                       <motion.img
                         src={project.images.cover}
                         alt={project.title}
-                        className="w-full aspect-[3/2] object-contain"
+                        className="w-full object-cover"
                         whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.6 }}
                       />
@@ -96,12 +56,6 @@ const Projetos = () => {
                 </motion.div>
               ))}
             </div>
-
-            {filteredProjects.length === 0 && (
-              <div className="text-center py-12">
-                <p className="text-muted-foreground">Nenhum projeto encontrado.</p>
-              </div>
-            )}
           </div>
         </section>
       </Layout>
