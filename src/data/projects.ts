@@ -13,6 +13,11 @@ export interface Project {
     gallery: string[];
   };
   tags: string[];
+  brandStory?: {
+    history: string;
+    voiceTone: string;
+    values?: string[];
+  };
 }
 
 import polis01 from "@/assets/projects/polis/polis-01.jpg";
@@ -51,7 +56,12 @@ export const projects: Project[] = [
       cover: caroline05,
       gallery: [caroline01, caroline02, caroline03, caroline04, caroline05, caroline06, caroline07, caroline08, caroline09]
     },
-    tags: ["Advocacia", "Jurídico", "Identidade Visual"]
+    tags: ["Advocacia", "Jurídico", "Identidade Visual"],
+    brandStory: {
+      history: "Caroline Rossi construiu sua trajetória no universo jurídico com foco em assessoria personalizada e atendimento humanizado. Após anos atuando em grandes escritórios, decidiu fundar seu próprio espaço — um ambiente onde o Direito encontra a empatia. A marca nasce da necessidade de traduzir essa abordagem única em uma identidade visual que inspire confiança e acolhimento.",
+      voiceTone: "O tom de voz da marca é elegante, acessível e empático. A comunicação evita jargões jurídicos excessivos, priorizando clareza e proximidade. O discurso é sempre em terceira pessoa, transmitindo profissionalismo sem frieza — como uma conversa entre aliados.",
+      values: ["Confiança", "Sofisticação", "Empatia", "Transparência", "Excelência"]
+    }
   },
   {
     id: "polis-engenharia",
@@ -67,7 +77,12 @@ export const projects: Project[] = [
       cover: polis08,
       gallery: [polis01, polis02, polis03, polis04, polis05, polis06, polis07, polis08]
     },
-    tags: ["Construção", "Engenharia", "Identidade Visual"]
+    tags: ["Construção", "Engenharia", "Identidade Visual"],
+    brandStory: {
+      history: "A Pólis Engenharia nasceu da visão de engenheiros apaixonados por transformar projetos em realidade. Com mais de uma década de experiência no setor de construção civil, a empresa se consolidou como referência em obras residenciais e comerciais. O nome 'Pólis' remete à cidade grega — um símbolo de construção coletiva, planejamento e progresso urbano.",
+      voiceTone: "A comunicação da Pólis é direta, técnica quando necessário, mas sempre acessível. O tom transmite segurança e competência, usando uma linguagem que equilibra autoridade profissional com proximidade humana. Cada mensagem reforça a ideia de solidez e compromisso.",
+      values: ["Solidez", "Inovação", "Compromisso", "Qualidade", "Sustentabilidade"]
+    }
   },
 ];
 

@@ -1,17 +1,19 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, BookOpen, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Layout from "@/components/Layout";
 import { getProjectById, projects } from "@/data/projects";
 import PageTransition from "@/components/PageTransition";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import AnimatedText from "@/components/AnimatedText";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 const ProjetoDetalhe = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const project = getProjectById(id || "");
+  const [brandStoryOpen, setBrandStoryOpen] = useState(false);
 
   if (!project) {
     return (
@@ -134,6 +136,98 @@ const ProjetoDetalhe = () => {
             </div>
           </div>
         </section>
+
+        {/* Brand Story Expandable */}
+        {project.brandStory && (
+          <section className="pb-16">
+            <div className="container mx-auto px-6">
+              <RevealOnScroll>
+                <motion.button
+                  onClick={() => setBrandStoryOpen(!brandStoryOpen)}
+                  className="w-full flex items-center justify-between py-5 px-6 border border-border/40 rounded-xl hover:border-border/80 transition-colors group"
+                  whileHover={{ scale: 1.005 }}
+                  whileTap={{ scale: 0.995 }}
+                >
+                  <div className="flex items-center gap-3">
+                    <BookOpen size={20} className="text-primary/50 group-hover:text-primary/80 transition-colors" />
+                    <span className="text-lg font-medium text-primary/80 group-hover:text-primary transition-colors">
+                      História da marca
+                    </span>
+                  </div>
+                  <motion.div
+                    animate={{ rotate: brandStoryOpen ? 180 : 0 }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                  >
+                    <ChevronDown size={20} className="text-primary/40" />
+                  </motion.div>
+                </motion.button>
+
+                <AnimatePresence initial={false}>
+                  {brandStoryOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-8 pb-4 space-y-10">
+                        {/* History */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.15, duration: 0.5 }}
+                        >
+                          <h3 className="text-sm text-primary/50 uppercase tracking-wider mb-3">A História</h3>
+                          <p className="text-primary/70 leading-relaxed text-lg max-w-3xl">
+                            {project.brandStory.history}
+                          </p>
+                        </motion.div>
+
+                        {/* Voice & Tone */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.25, duration: 0.5 }}
+                        >
+                          <h3 className="text-sm text-primary/50 uppercase tracking-wider mb-3">Tom de Voz</h3>
+                          <p className="text-primary/70 leading-relaxed text-lg max-w-3xl">
+                            {project.brandStory.voiceTone}
+                          </p>
+                        </motion.div>
+
+                        {/* Values */}
+                        {project.brandStory.values && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.35, duration: 0.5 }}
+                          >
+                            <h3 className="text-sm text-primary/50 uppercase tracking-wider mb-4">Valores</h3>
+                            <div className="flex flex-wrap gap-3">
+                              {project.brandStory.values.map((value, i) => (
+                                <motion.span
+                                  key={value}
+                                  className="px-4 py-2 border border-border/40 text-primary/70 text-sm rounded-full"
+                                  initial={{ opacity: 0, scale: 0.8 }}
+                                  animate={{ opacity: 1, scale: 1 }}
+                                  transition={{ delay: 0.4 + i * 0.06 }}
+                                  whileHover={{ scale: 1.05, borderColor: "hsl(var(--primary) / 0.4)" }}
+                                >
+                                  {value}
+                                </motion.span>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </RevealOnScroll>
+            </div>
+          </section>
+        )}
 
         {/* Gallery */}
         <section className="pb-16">
