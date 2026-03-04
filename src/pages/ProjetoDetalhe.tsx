@@ -63,7 +63,7 @@ const ProjetoDetalhe = () => {
               <AnimatedText
                 as="h1"
                 className="text-4xl md:text-5xl lg:text-6xl font-light mt-2 mb-6"
-                splitBy="chars"
+                splitBy="words"
                 delay={0.15}>
                 
                 {project.title}
