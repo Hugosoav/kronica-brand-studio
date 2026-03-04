@@ -11,8 +11,8 @@ const Sobre = () => {
         <title>Sobre a Kronica</title>
         <meta
           name="description"
-          content="A Kronica é um estúdio de design que desenvolve soluções visuais do físico ao digital, com clareza estratégica e alto nível de refinamento."
-        />
+          content="A Kronica é um estúdio de design que desenvolve soluções visuais do físico ao digital, com clareza estratégica e alto nível de refinamento." />
+        
 
         {/* About Section */}
         <section className="py-20 md:py-32 lg:py-40">
@@ -28,8 +28,8 @@ const Sobre = () => {
                 <AnimatedText
                   as="h1"
                   className="text-4xl lg:text-6xl font-light leading-tight mb-10 md:text-4xl"
-                  splitBy="words"
-                >
+                  splitBy="words">
+                  
                   Filosofia de Design
                 </AnimatedText>
 
@@ -54,17 +54,17 @@ const Sobre = () => {
 
                   <div className="space-y-0">
                     {[
-                      { title: "Estratégia", desc: "Diagnóstico aprofundado de contexto, mercado e posicionamento" },
-                      { title: "Colaboração", desc: "Parceria próxima com clientes durante as etapas do processo" },
-                      { title: "Refinamento", desc: "Soluções visuais contemporâneas com alto nível de acabamento" },
-                    ].map((item, i) => (
-                      <RevealOnScroll key={item.title} delay={0.15 * i} direction="right">
+                    { title: "Estratégia", desc: "Diagnóstico aprofundado de contexto, mercado e posicionamento" },
+                    { title: "Colaboração", desc: "Parceria próxima com clientes durante as etapas do processo" },
+                    { title: "Refinamento", desc: "Soluções visuais contemporâneas com alto nível de acabamento" }].
+                    map((item, i) =>
+                    <RevealOnScroll key={item.title} delay={0.15 * i} direction="right">
                         <div className="border-l-2 border-foreground pl-5 py-4">
                           <h3 className="text-base font-semibold mb-1">{item.title}</h3>
                           <p className="text-sm text-muted-foreground">{item.desc}</p>
                         </div>
                       </RevealOnScroll>
-                    ))}
+                    )}
                   </div>
                 </div>
 
@@ -78,12 +78,12 @@ const Sobre = () => {
                           </span>
                           <span className="text-3xl md:text-4xl font-light">2026</span>
                         </div>
-                        <div>
-                          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-2 block">
-                            Projetos
-                          </span>
-                          <span className="text-3xl md:text-4xl font-light">10+</span>
-                        </div>
+                        
+
+
+
+
+                        
                       </div>
                     </div>
                   </div>
@@ -93,8 +93,8 @@ const Sobre = () => {
           </div>
         </section>
       </Layout>
-    </PageTransition>
-  );
+    </PageTransition>);
+
 };
 
 export default Sobre;
