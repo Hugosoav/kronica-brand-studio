@@ -47,24 +47,32 @@ const Sobre = () => {
               <div className="flex flex-col justify-between">
                 <div>
                   <RevealOnScroll direction="right">
-                    <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6 block">
+                    <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground mb-8 block">
                       Abordagem
                     </span>
                   </RevealOnScroll>
 
-                  <div className="space-y-0">
+                  <div className="space-y-6">
                     {[
-                    { title: "Estratégia", desc: "Diagnóstico aprofundado de contexto, mercado e posicionamento" },
-                    { title: "Colaboração", desc: "Parceria próxima com clientes durante as etapas do processo" },
-                    { title: "Refinamento", desc: "Soluções visuais contemporâneas com alto nível de acabamento" }].
-                    map((item, i) =>
-                    <RevealOnScroll key={item.title} delay={0.15 * i} direction="right">
-                        <div className="border-l-2 border-foreground pl-5 py-4">
-                          <h3 className="text-base font-semibold mb-1">{item.title}</h3>
-                          <p className="text-sm text-muted-foreground">{item.desc}</p>
+                      { number: "01", title: "Estratégia", desc: "Diagnóstico aprofundado de contexto, mercado e posicionamento" },
+                      { number: "02", title: "Colaboração", desc: "Parceria próxima com clientes durante as etapas do processo" },
+                      { number: "03", title: "Refinamento", desc: "Soluções visuais contemporâneas com alto nível de acabamento" },
+                    ].map((item, i) => (
+                      <RevealOnScroll key={item.title} delay={0.2 * i} direction="right">
+                        <div className="group relative pl-16 py-5 border-b border-border/40 hover:border-foreground/30 transition-colors duration-500">
+                          {/* Large faded number */}
+                          <span className="absolute left-0 top-1/2 -translate-y-1/2 text-5xl md:text-6xl font-extralight text-foreground/[0.07] group-hover:text-foreground/[0.15] transition-colors duration-500 select-none">
+                            {item.number}
+                          </span>
+                          <h3 className="text-lg font-medium tracking-wide mb-1 group-hover:translate-x-2 transition-transform duration-500">
+                            {item.title}
+                          </h3>
+                          <p className="text-sm text-muted-foreground leading-relaxed group-hover:translate-x-2 transition-transform duration-500 delay-75">
+                            {item.desc}
+                          </p>
                         </div>
                       </RevealOnScroll>
-                    )}
+                    ))}
                   </div>
                 </div>
 
