@@ -124,11 +124,15 @@ const Header = () => {
                     <Link
                       key={link.href}
                       to={link.href}
-                      className="relative text-sm font-medium transition-colors hover:text-foreground group py-1"
+                      className="relative text-sm font-medium transition-all duration-300 hover:text-foreground group py-1"
                     >
-                      <span className={isActive(link.href) ? "text-foreground" : "text-muted-foreground"}>
+                      <motion.span
+                        className={isActive(link.href) ? "text-foreground" : "text-muted-foreground"}
+                        whileHover={{ y: -1 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                      >
                         {link.label}
-                      </span>
+                      </motion.span>
                       <motion.span
                         className="absolute bottom-0 left-0 h-[1px] bg-foreground"
                         initial={false}
@@ -216,7 +220,6 @@ const Header = () => {
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <MagneticButton strength={0.2}>
                     <Button
                       size="sm"
                       variant="ghost"
@@ -225,7 +228,6 @@ const Header = () => {
                     >
                       <Search size={20} />
                     </Button>
-                  </MagneticButton>
                 </motion.div>
               )}
             </AnimatePresence>
