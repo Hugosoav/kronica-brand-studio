@@ -50,12 +50,22 @@ const Header = () => {
   // Close on click outside
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      if (searchContainerRef.current && !searchContainerRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      if (!target || !document.contains(target)) return;
+      if (searchContainerRef.current && !searchContainerRef.current.contains(target)) {
         setSearchOpen(false);
       }
     };
-    if (searchOpen) document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
+    if (searchOpen) {
+      // Use setTimeout to avoid catching the same click that opened the search
+      const timer = setTimeout(() => {
+        document.addEventListener("mousedown", handleClick);
+      }, 100);
+      return () => {
+        clearTimeout(timer);
+        document.removeEventListener("mousedown", handleClick);
+      };
+    }
   }, [searchOpen]);
 
   // Close menu on route change
