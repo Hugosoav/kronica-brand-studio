@@ -54,7 +54,7 @@ export const projects: Project[] = [
     services: ["Identidade Visual", "Design de Logo", "Papelaria", "Aplicações"],
     images: {
       cover: caroline05,
-      gallery: [caroline01, caroline02, caroline03, caroline04, caroline05, caroline06, caroline07, caroline08, caroline09]
+      gallery: [caroline01, caroline02, caroline03, caroline04, caroline05, caroline06, caroline07, caroline08]
     },
     tags: ["Advocacia", "Jurídico", "Identidade Visual"],
     brandStory: {
