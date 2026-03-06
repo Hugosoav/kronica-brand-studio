@@ -124,15 +124,21 @@ const Header = () => {
                     <Link
                       key={link.href}
                       to={link.href}
-                      className="relative text-sm font-medium transition-all duration-300 hover:text-foreground group py-1"
+                      className="relative text-sm font-medium transition-all duration-300 group py-1 overflow-hidden"
                     >
-                      <motion.span
-                        className={isActive(link.href) ? "text-foreground" : "text-muted-foreground"}
-                        whileHover={{ y: -1 }}
-                        transition={{ type: "spring", stiffness: 400, damping: 20 }}
-                      >
-                        {link.label}
-                      </motion.span>
+                      <span className="flex flex-col h-[1.2em] overflow-hidden">
+                        <motion.span
+                          className={`block transition-transform duration-300 group-hover:-translate-y-full ${isActive(link.href) ? "text-foreground" : "text-muted-foreground"}`}
+                        >
+                          {link.label}
+                        </motion.span>
+                        <motion.span
+                          className="block transition-transform duration-300 group-hover:-translate-y-full text-foreground"
+                          aria-hidden
+                        >
+                          {link.label}
+                        </motion.span>
+                      </span>
                       <motion.span
                         className="absolute bottom-0 left-0 h-[1px] bg-foreground"
                         initial={false}
