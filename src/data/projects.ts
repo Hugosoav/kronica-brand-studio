@@ -39,7 +39,7 @@ import caroline05 from "@/assets/projects/caroline-rossi/caroline-rossi-05.jpg";
 import caroline06 from "@/assets/projects/caroline-rossi/caroline-rossi-06.jpg";
 import caroline07 from "@/assets/projects/caroline-rossi/caroline-rossi-07.jpg";
 import caroline08 from "@/assets/projects/caroline-rossi/caroline-rossi-08.jpg";
-import caroline09 from "@/assets/projects/caroline-rossi/caroline-rossi-09.jpg";
+
 
 export const projects: Project[] = [
   {
@@ -54,7 +54,7 @@ export const projects: Project[] = [
     services: ["Identidade Visual", "Design de Logo", "Papelaria", "Aplicações"],
     images: {
       cover: caroline05,
-      gallery: [caroline01, caroline02, caroline03, caroline04, caroline05, caroline06, caroline07, caroline08, caroline09]
+      gallery: [caroline01, caroline02, caroline03, caroline04, caroline05, caroline06, caroline07, caroline08]
     },
     tags: ["Advocacia", "Jurídico", "Identidade Visual"],
     brandStory: {
