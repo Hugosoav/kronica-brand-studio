@@ -235,7 +235,7 @@ const ProjetoDetalhe = () => {
             <RevealOnScroll>
               <h2 className="text-2xl font-semibold mb-8">Galeria</h2>
             </RevealOnScroll>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 gap-6">
               {project.images.gallery.map((image, index) =>
               <motion.div
                 key={index}
