@@ -140,7 +140,7 @@ const ProjetoDetalhe = () => {
         {/* Brand Story Expandable */}
         {project.brandStory &&
         <section className="pb-16">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto">
               <RevealOnScroll>
                 <motion.button
                 onClick={() => setBrandStoryOpen(!brandStoryOpen)}
