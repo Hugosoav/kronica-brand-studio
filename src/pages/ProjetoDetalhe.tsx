@@ -287,7 +287,7 @@ const ProjetoDetalhe = () => {
 
         {/* Navigation */}
         <section className="pb-24 border-t border-primary/10 pt-12">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto">
             <RevealOnScroll>
               <div className="flex justify-between items-center">
                 {prevProject ?

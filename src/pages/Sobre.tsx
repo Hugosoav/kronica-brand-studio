@@ -16,7 +16,7 @@ const Sobre = () => {
 
         {/* About Section */}
         <section className="py-20 md:py-32 lg:py-40">
-          <div className="container mx-auto px-4">
+          <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8">
               {/* Left - Title + Text */}
               <div>
