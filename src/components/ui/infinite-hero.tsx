@@ -260,7 +260,7 @@ export default function InfiniteHero({
 
           <p
             ref={pRef}
-            className={`max-w-2xl text-base sm:text-lg md:text-xl px-2 ${isDark ? "text-white/70" : "text-black/60"}`}>
+            className={`max-w-2xl text-sm sm:text-base md:text-lg px-2 font-light tracking-wide ${isDark ? "text-white/60" : "text-black/50"}`}>
 
             {subtitle}
           </p>
