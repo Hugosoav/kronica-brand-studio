@@ -235,7 +235,8 @@ export default function InfiniteHero({
         <div className="flex flex-col items-center gap-4 sm:gap-6">
           <h1
             ref={h1Ref}
-            className="font-display tracking-[-0.02em] text-[clamp(3rem,13vw,8rem)] py-2 font-extralight"
+            className="tracking-[-0.02em] text-[clamp(3rem,13vw,8rem)] py-2 font-light"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             style={{
               backgroundImage: isDark ?
               "linear-gradient(90deg, #ffffff 0%, #ffffff 35%, #888888 50%, #ffffff 65%, #ffffff 100%)" :
