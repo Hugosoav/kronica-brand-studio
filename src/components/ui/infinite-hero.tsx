@@ -236,8 +236,8 @@ export default function InfiniteHero({
           <h1
             ref={h1Ref}
             className="tracking-[-0.02em] text-[clamp(3rem,13vw,8rem)] py-2 font-light"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             style={{
+              fontFamily: "'Space Grotesk', sans-serif",
               backgroundImage: isDark ?
               "linear-gradient(90deg, #ffffff 0%, #ffffff 35%, #888888 50%, #ffffff 65%, #ffffff 100%)" :
               "linear-gradient(90deg, #111111 0%, #111111 35%, #999999 50%, #111111 65%, #111111 100%)",
