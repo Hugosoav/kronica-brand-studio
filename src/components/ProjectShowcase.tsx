@@ -77,7 +77,7 @@ const ProjectShowcase = () => {
 
   return (
     <section className="py-16 md:py-24">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         {/* Section Header */}
         <RevealOnScroll>
           <div className="mb-12 border-b border-border/30 pb-6 items-start justify-between rounded-none flex flex-row my-0 py-0">

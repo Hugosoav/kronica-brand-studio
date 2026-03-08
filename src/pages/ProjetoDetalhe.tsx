@@ -42,7 +42,7 @@ const ProjetoDetalhe = () => {
 
         {/* Hero */}
         <section className="pt-24 pb-12">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto">
             <RevealOnScroll>
               <Button
                 variant="ghost"
@@ -79,7 +79,7 @@ const ProjetoDetalhe = () => {
 
         {/* Cover Image */}
         <section className="pb-16">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto">
             <RevealOnScroll>
               <div className="overflow-hidden rounded-lg">
                 <motion.img
@@ -98,7 +98,7 @@ const ProjetoDetalhe = () => {
 
         {/* Project Info */}
         <section className="pb-16">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto">
             <div className="grid md:grid-cols-3 gap-12">
               <div className="md:col-span-2">
                 <RevealOnScroll>
@@ -140,7 +140,7 @@ const ProjetoDetalhe = () => {
         {/* Brand Story Expandable */}
         {project.brandStory &&
         <section className="pb-16">
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto">
               <RevealOnScroll>
                 <motion.button
                 onClick={() => setBrandStoryOpen(!brandStoryOpen)}
@@ -231,7 +231,7 @@ const ProjetoDetalhe = () => {
 
         {/* Gallery */}
         <section className="pb-16">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto">
             <RevealOnScroll>
               <h2 className="text-2xl font-semibold mb-8">Galeria</h2>
             </RevealOnScroll>
@@ -264,7 +264,7 @@ const ProjetoDetalhe = () => {
 
         {/* Tags */}
         <section className="pb-16">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto">
             <RevealOnScroll>
               <div className="flex flex-wrap gap-3">
                 {project.tags.map((tag, index) =>
@@ -287,7 +287,7 @@ const ProjetoDetalhe = () => {
 
         {/* Navigation */}
         <section className="pb-24 border-t border-primary/10 pt-12">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto">
             <RevealOnScroll>
               <div className="flex justify-between items-center">
                 {prevProject ?

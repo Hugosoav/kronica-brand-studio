@@ -94,7 +94,7 @@ const Header = () => {
           : "bg-background/60 backdrop-blur-md"
       }`}
     >
-      <div className="w-full px-4 md:px-6 py-5">
+      <div className="w-full px-5 md:px-7 py-5">
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <MagneticButton strength={0.15}>

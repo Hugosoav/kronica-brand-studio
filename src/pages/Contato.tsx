@@ -36,7 +36,7 @@ const Contato = () => {
 
           {/* Contact Section */}
           <section className="flex-1 flex items-center py-24 md:py-32">
-            <div className="container mx-auto px-4">
+            <div className="container mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-12">
                 {/* Left Column */}
                 <div>
