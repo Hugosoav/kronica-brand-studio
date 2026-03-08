@@ -235,7 +235,7 @@ export default function InfiniteHero({
         <div className="flex flex-col items-center gap-4 sm:gap-6">
           <h1
             ref={h1Ref}
-            className="tracking-tight text-[clamp(2.5rem,11vw,6rem)] py-2 font-thin text-slate-600 lg:whitespace-nowrap"
+            className="font-display tracking-[-0.02em] text-[clamp(3rem,13vw,8rem)] py-2 font-extralight lg:whitespace-nowrap"
             style={{
               backgroundImage: isDark ?
               "linear-gradient(90deg, #ffffff 0%, #ffffff 35%, #888888 50%, #ffffff 65%, #ffffff 100%)" :
@@ -260,7 +260,7 @@ export default function InfiniteHero({
 
           <p
             ref={pRef}
-            className={`max-w-2xl text-base sm:text-lg md:text-xl px-2 ${isDark ? "text-white/70" : "text-black/60"}`}>
+            className={`max-w-2xl text-sm sm:text-base md:text-lg px-2 font-light tracking-wide ${isDark ? "text-white/60" : "text-black/50"}`}>
 
             {subtitle}
           </p>

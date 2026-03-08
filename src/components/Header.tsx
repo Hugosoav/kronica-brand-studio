@@ -94,7 +94,7 @@ const Header = () => {
           : "bg-background/60 backdrop-blur-md"
       }`}
     >
-      <div className="container mx-auto px-4 py-3">
+      <div className="container mx-auto px-6 md:px-10 py-5">
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <MagneticButton strength={0.15}>
@@ -110,7 +110,7 @@ const Header = () => {
           </MagneticButton>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-12">
             <AnimatePresence mode="wait">
               {!searchOpen && (
                 <motion.div
@@ -124,7 +124,7 @@ const Header = () => {
                     <Link
                       key={link.href}
                       to={link.href}
-                      className="relative text-sm font-medium transition-all duration-300 group py-1 overflow-hidden"
+                      className="relative text-xs font-normal uppercase tracking-[0.2em] transition-all duration-300 group py-1 overflow-hidden"
                     >
                       <span className="flex flex-col h-[1.2em] overflow-hidden">
                         <motion.span
