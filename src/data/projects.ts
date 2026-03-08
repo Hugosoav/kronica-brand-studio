@@ -60,7 +60,7 @@ export const projects: Project[] = [
     },
     tags: ["Hotelaria", "Natureza", "Rebranding", "Ecológico"],
     brandStory: {
-      history: "Acreditamos que viajar é mais do que mudar de lugar, é mudar o ritmo, o olhar e a energia. A Pousada da Mata nasceu para ser refúgio: um espaço onde a natureza não é apenas cenário, mas presença viva, onde o silêncio traz paz e cada detalhe convida você a respirar mais fundo. Entre o verde da mata e o azul do céu, criamos um lugar onde o simples se torna especial e o conforto abraça. Porque descansar é essencial e viver momentos memoráveis importa.",
+      history: "Fundada em 1988, a Pousada Da Mata nasceu como um pequeno refúgio em meio à natureza de Iriri. Em 2002, sob nova gestão, a pousada passou por uma profunda reestruturação — um processo guiado pelo respeito ao ambiente, pelo crescimento orgânico da flora e pela preservação dos animais que habitam a região. Cada decisão foi tomada para que a natureza continuasse sendo protagonista. Agora, em 2025, a Pousada Da Mata se expande para um novo capítulo: além da hospedagem que já é referência em acolhimento e reconexão, o espaço cresce para receber eventos, celebrações e encontros — sempre mantendo a essência que a tornou especial: o equilíbrio entre conforto, simplicidade e a presença viva da mata.",
       voiceTone: "O tom de voz é acolhedor, sensorial e sereno. A comunicação evoca sensações: o som das folhas, o cheiro da mata, o calor do sol. O discurso é convidativo e intimista, como um convite sussurrado para desacelerar e se reconectar.",
       values: ["Reconexão", "Natureza", "Acolhimento", "Simplicidade", "Descanso"]
     }
