@@ -66,12 +66,12 @@ function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: Dropd
       {isOpen &&
       <>
           <div
-          className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm animate-fade-in"
+          className="absolute inset-0 z-40 bg-background/80 backdrop-blur-sm"
           onClick={onClose}
           style={{ animation: 'fadeIn 0.2s ease-out' }} />
 
           <div
-          className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[90vw] max-w-2xl max-h-[80vh] bg-background border border-border rounded-2xl shadow-2xl p-4 sm:p-6 flex flex-col"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[90vw] max-w-2xl max-h-[60vh] bg-background border border-border rounded-2xl shadow-2xl p-4 sm:p-6 flex flex-col"
           style={{
             animation: 'popupIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards'
           }}>
