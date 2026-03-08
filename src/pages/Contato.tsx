@@ -35,7 +35,7 @@ const Contato = () => {
                     splitBy="words"
                     delay={0.1}
                   >
-                    Vamos criar algo extraordinário
+                    {"Vamos\ncriar algo\nextraordinário"}
                   </AnimatedText>
 
                   <div className="space-y-10">
