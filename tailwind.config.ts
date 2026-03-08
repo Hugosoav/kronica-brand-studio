@@ -11,6 +11,7 @@ export default {
         DEFAULT: "1.25rem",
         md: "1.75rem",
       },
+      screens: {},
     },
     extend: {
       fontFamily: {
