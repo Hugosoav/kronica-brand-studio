@@ -2,9 +2,9 @@
 
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { ChevronDown, X } from "lucide-react";
+import { ChevronDown, X, Search } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
 import ShaderHeroBackground from "./shader-hero-background";
 
@@ -52,13 +52,24 @@ interface DropdownProps {
 
 function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: DropdownProps) {
   const selectedLabel = options.find((o) => o.value === value)?.label || options[0].label;
+  const [filter, setFilter] = useState("");
+
+  const filteredOptions = useMemo(() => {
+    if (!filter.trim()) return options;
+    const q = filter.toLowerCase();
+    return options.filter((o) => o.label.toLowerCase().includes(q));
+  }, [filter, options]);
+
+  const handleClose = () => {
+    setFilter("");
+    onClose();
+  };
 
   return (
     <div className="relative">
       <button
         onClick={onToggle}
         className="inline-flex items-center gap-1 font-medium text-foreground hover:opacity-70 transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]">
-
         {selectedLabel}
         <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
       </button>
@@ -67,7 +78,7 @@ function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: Dropd
       <>
           <div
           className="fixed inset-0 z-40 bg-background/80 backdrop-blur-sm animate-fade-in"
-          onClick={onClose}
+          onClick={handleClose}
           style={{ animation: 'fadeIn 0.2s ease-out' }} />
 
           <div
@@ -76,22 +87,35 @@ function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: Dropd
             animation: 'popupIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards'
           }}>
 
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-4">
               <h3 className="text-lg font-medium text-foreground">Selecione uma opção</h3>
               <button
-              onClick={onClose}
+              onClick={handleClose}
               className="p-2 hover:bg-muted rounded-full transition-all duration-200 hover:scale-110 hover:rotate-90 active:scale-95">
-
                 <X className="h-5 w-5" />
               </button>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {options.map((option, index) =>
+
+            {/* Filter input */}
+            <div className="relative mb-4">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+              <input
+                type="text"
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+                placeholder="Filtrar..."
+                autoFocus
+                className="w-full pl-9 pr-4 py-2.5 text-sm rounded-lg border border-border bg-muted/50 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground/20 transition-all"
+              />
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 max-h-[50vh] overflow-y-auto">
+              {filteredOptions.length > 0 ? filteredOptions.map((option, index) =>
             <button
               key={option.value}
               onClick={() => {
                 onChange(option.value);
-                onClose();
+                handleClose();
               }}
               className={`text-left px-4 py-3 text-sm rounded-lg border transition-all duration-200 hover:scale-[1.03] hover:shadow-md active:scale-[0.97] ${
               value === option.value ?
@@ -101,16 +125,18 @@ function Dropdown({ options, value, onChange, isOpen, onToggle, onClose }: Dropd
               style={{
                 animation: `slideUp 0.3s ease-out ${index * 0.03}s both`
               }}>
-
                   {option.label}
                 </button>
+            ) : (
+              <p className="col-span-full text-center text-sm text-muted-foreground py-6">
+                Nenhum resultado encontrado
+              </p>
             )}
             </div>
           </div>
         </>
       }
     </div>);
-
 }
 
 export default function InfiniteHero({
