@@ -15,7 +15,7 @@ const Projetos = () => {
         {/* Projects – organic masonry layout */}
         <section className="pt-24 pb-16 md:pb-20">
           <div className="container mx-auto">
-            <div className="flex flex-col gap-8 sm:gap-10">
+            <div className="columns-1 sm:columns-2 gap-6 sm:gap-8">
               {projects.map((project, index) => (
                 <motion.div
                   key={project.id}
