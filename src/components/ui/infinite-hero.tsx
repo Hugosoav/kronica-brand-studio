@@ -130,14 +130,37 @@ export default function InfiniteHero({
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  const handleNavigate = () => {
+  const navigateToContact = (service: string, industry: string) => {
     const params = new URLSearchParams();
-    if (selectedService) params.set("service", selectedService);
-    if (selectedIndustry) params.set("industry", selectedIndustry);
+    if (service) params.set("service", service);
+    if (industry) params.set("industry", industry);
     const query = params.toString();
-    // If user selected a service or industry, go to contact page; otherwise go to projects
+    navigate(`/contato${query ? `?${query}` : ""}`);
+  };
+
+  const handleServiceChange = (value: string) => {
+    setSelectedService(value);
+    if (value && selectedIndustry) {
+      navigateToContact(value, selectedIndustry);
+    } else if (value && !selectedIndustry) {
+      setServiceOpen(false);
+      setIndustryOpen(true);
+    }
+  };
+
+  const handleIndustryChange = (value: string) => {
+    setSelectedIndustry(value);
+    if (value && selectedService) {
+      navigateToContact(selectedService, value);
+    } else if (value && !selectedService) {
+      setIndustryOpen(false);
+      setServiceOpen(true);
+    }
+  };
+
+  const handleBarClick = () => {
     if (selectedService || selectedIndustry) {
-      navigate(`/contato${query ? `?${query}` : ""}`);
+      navigateToContact(selectedService, selectedIndustry);
     } else {
       navigate("/projetos");
     }
