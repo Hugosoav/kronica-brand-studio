@@ -13,13 +13,8 @@ const Footer = () => {
             <span className="text-xs uppercase tracking-[0.3em] text-background/50 mb-6 block">
               Entre em contato
             </span>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-12">Vamos
-criar algo extraordinário
-
-
-
-
-              <br />extraordinário
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-12">
+              Vamos criar algo extraordinário
             </h2>
 
             <div className="space-y-8">
