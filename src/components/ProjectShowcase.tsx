@@ -134,7 +134,6 @@ const ProjectShowcase = () => {
               className="inline-flex items-center gap-2 px-6 py-3 border border-border rounded-full hover:bg-foreground hover:text-background hover:border-foreground transition-all duration-300 group"
             >
               <span className="text-sm">Explorar portfólio completo</span>
-              <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </Link>
           </div>
         </RevealOnScroll>
