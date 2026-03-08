@@ -45,27 +45,6 @@ import pousada09 from "@/assets/projects/pousada-da-mata/pousada-da-mata-09.jpg"
 
 export const projects: Project[] = [
   {
-    id: "caroline-rossi",
-    title: "Caroline Rossi",
-    category: "Identidade Visual",
-    description: "Identidade visual sofisticada e atemporal para escritório de advocacia e assessoria jurídica.",
-    fullDescription: "Desenvolvemos uma identidade visual elegante e marcante para Caroline Rossi, advogada especializada em assessoria jurídica. O projeto resultou em uma marca que transmite confiança, sofisticação e profissionalismo no universo jurídico.",
-    concept: "O conceito central foi criar uma marca que equilibra tradição e contemporaneidade. O monograma CR combina as iniciais de forma orgânica e distintiva, enquanto a paleta em tons de verde petróleo e bege transmite seriedade e elegância. A tipografia serifada reforça a autoridade e o refinamento da marca.",
-    year: "2026",
-    client: "Caroline Rossi",
-    services: ["Identidade Visual", "Design de Logo", "Papelaria", "Aplicações"],
-    images: {
-      cover: caroline02,
-      gallery: [caroline01, caroline02, caroline03, caroline04, caroline05, caroline06, caroline07, caroline08]
-    },
-    tags: ["Advocacia", "Jurídico", "Identidade Visual"],
-    brandStory: {
-      history: "Caroline Rossi construiu sua trajetória no universo jurídico com foco em assessoria personalizada e atendimento humanizado. Após anos atuando em grandes escritórios, decidiu fundar seu próprio espaço, um ambiente onde o Direito encontra a empatia. A marca nasce da necessidade de traduzir essa abordagem única em uma identidade visual que inspire confiança e acolhimento.",
-      voiceTone: "O tom de voz da marca é elegante, acessível e empático. A comunicação evita jargões jurídicos excessivos, priorizando clareza e proximidade. O discurso é sempre em terceira pessoa, transmitindo profissionalismo sem frieza, como uma conversa entre aliados.",
-      values: ["Confiança", "Sofisticação", "Empatia", "Transparência", "Excelência"]
-    }
-  },
-  {
     id: "pousada-da-mata",
     title: "Pousada Da Mata",
     category: "Rebranding",
@@ -84,6 +63,27 @@ export const projects: Project[] = [
       history: "Acreditamos que viajar é mais do que mudar de lugar, é mudar o ritmo, o olhar e a energia. A Pousada da Mata nasceu para ser refúgio: um espaço onde a natureza não é apenas cenário, mas presença viva, onde o silêncio traz paz e cada detalhe convida você a respirar mais fundo. Entre o verde da mata e o azul do céu, criamos um lugar onde o simples se torna especial e o conforto abraça. Porque descansar é essencial e viver momentos memoráveis importa.",
       voiceTone: "O tom de voz é acolhedor, sensorial e sereno. A comunicação evoca sensações — o som das folhas, o cheiro da mata, o calor do sol. O discurso é convidativo e intimista, como um convite sussurrado para desacelerar e se reconectar.",
       values: ["Reconexão", "Natureza", "Acolhimento", "Simplicidade", "Descanso"]
+    }
+  },
+  {
+    id: "caroline-rossi",
+    title: "Caroline Rossi",
+    category: "Identidade Visual",
+    description: "Identidade visual sofisticada e atemporal para escritório de advocacia e assessoria jurídica.",
+    fullDescription: "Desenvolvemos uma identidade visual elegante e marcante para Caroline Rossi, advogada especializada em assessoria jurídica. O projeto resultou em uma marca que transmite confiança, sofisticação e profissionalismo no universo jurídico.",
+    concept: "O conceito central foi criar uma marca que equilibra tradição e contemporaneidade. O monograma CR combina as iniciais de forma orgânica e distintiva, enquanto a paleta em tons de verde petróleo e bege transmite seriedade e elegância. A tipografia serifada reforça a autoridade e o refinamento da marca.",
+    year: "2026",
+    client: "Caroline Rossi",
+    services: ["Identidade Visual", "Design de Logo", "Papelaria", "Aplicações"],
+    images: {
+      cover: caroline02,
+      gallery: [caroline01, caroline02, caroline03, caroline04, caroline05, caroline06, caroline07, caroline08]
+    },
+    tags: ["Advocacia", "Jurídico", "Identidade Visual"],
+    brandStory: {
+      history: "Caroline Rossi construiu sua trajetória no universo jurídico com foco em assessoria personalizada e atendimento humanizado. Após anos atuando em grandes escritórios, decidiu fundar seu próprio espaço, um ambiente onde o Direito encontra a empatia. A marca nasce da necessidade de traduzir essa abordagem única em uma identidade visual que inspire confiança e acolhimento.",
+      voiceTone: "O tom de voz da marca é elegante, acessível e empático. A comunicação evita jargões jurídicos excessivos, priorizando clareza e proximidade. O discurso é sempre em terceira pessoa, transmitindo profissionalismo sem frieza, como uma conversa entre aliados.",
+      values: ["Confiança", "Sofisticação", "Empatia", "Transparência", "Excelência"]
     }
   },
 ];
