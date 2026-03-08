@@ -79,7 +79,7 @@ const ProjetoDetalhe = () => {
 
         {/* Cover Image */}
         <section className="pb-16">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto">
             <RevealOnScroll>
               <div className="overflow-hidden rounded-lg">
                 <motion.img
