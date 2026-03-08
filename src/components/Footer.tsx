@@ -14,10 +14,12 @@ const Footer = () => {
               Entre em contato
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-12">Vamos
-criar algo
-extraordinário
+criar algo extraordinário
 
-<br />extraordinário
+
+
+
+              <br />extraordinário
             </h2>
 
             <div className="space-y-8">
@@ -35,9 +37,7 @@ extraordinário
                 <span className="text-xs uppercase tracking-[0.3em] text-background/50 mb-2 block">
                   WhatsApp
                 </span>
-                <a href="https://wa.me/5528999161275"
-                target="_blank"
-                rel="noopener noreferrer"
+                <a href="https://wa.me/5528999161275" target="_blank" rel="noopener noreferrer"
                 className="text-base md:text-lg hover:opacity-70 transition-opacity">
 
                   +55 (28) 99916-1275
