@@ -231,7 +231,7 @@ const ProjetoDetalhe = () => {
 
         {/* Gallery */}
         <section className="pb-16">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto">
             <RevealOnScroll>
               <h2 className="text-2xl font-semibold mb-8">Galeria</h2>
             </RevealOnScroll>
