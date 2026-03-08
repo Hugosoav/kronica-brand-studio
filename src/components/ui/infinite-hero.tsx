@@ -285,7 +285,7 @@ export default function InfiniteHero({
                 <Dropdown
                   options={industryOptions}
                   value={selectedIndustry}
-                  onChange={setSelectedIndustry}
+                  onChange={handleIndustryChange}
                   isOpen={industryOpen}
                   onToggle={() => {
                     setIndustryOpen(!industryOpen);
