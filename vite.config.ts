@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/nome-do-seu-repositorio/',
+  base: '/kronica-brand-studio/',
   server: {
     host: "::",
     port: 8080,
