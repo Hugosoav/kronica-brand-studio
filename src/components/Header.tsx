@@ -104,7 +104,6 @@ const Header = () => {
                   className="h-5 md:h-6"
                 />
               </Link>
-            </MagneticButton>
           </div>
 
           {/* Desktop Navigation - Centered */}
