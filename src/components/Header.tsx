@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from "react";
 import { Menu, X, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import MagneticButton from "@/components/MagneticButton";
 import logoBranco from "@/assets/logo-branco.png";
 import { projects } from "@/data/projects";
 
